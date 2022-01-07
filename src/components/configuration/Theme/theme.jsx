@@ -1,7 +1,9 @@
-import { createTheme } from "@material-ui/core/styles";
+// import { createTheme } from "@material-ui/core/styles";
 // import { createTheme } from "@material-ui/core";
 
 // import { createTheme } from "@mui/material/styles";
+
+import { createTheme } from "@mui/material/styles";
 
 // import { createTheme } from "@mui/material";
 
@@ -14,11 +16,12 @@ import { createTheme } from "@material-ui/core/styles";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#22C870",
+      main: "#22c870",
+      textColor: "#03314B",
     },
     secondary: {
-      main: "#DFE8F6",
-      dark: "#0365F2",
+      main: "#0365F2",
+      textColor: "#FFFFFF",
     },
   },
 });

@@ -4,21 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./components/organisms/Header/NavBar";
 import StatusTab from "./components/organisms/StatusTab/StatusTab";
-import HomePage from "./components/pages/MyLibrary";
-import ExplorePage from "./components/pages/Explore";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/library' element={<HomePage />} />
-        <Route path='/explore' element={<ExplorePage />} />
-      </Routes>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

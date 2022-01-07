@@ -4,6 +4,8 @@ import {
   AccordionDetails,
   AccordionSummary,
   AppBar,
+  Container,
+  Grid,
   Menu,
   MenuItem,
   Tab,
@@ -11,15 +13,23 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+
+import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import NavButton from "../../Atoms/Button/NavButton/NavButton";
 // import theme from "../../../Theme/theme";
 import { useState } from "react";
-import ExpandItems from "../../Molecules/Menu/ExploreMenu";
-
+import ExpandItems, { ExploreMenu } from "../../Molecules/Menu/ExploreMenu";
+import api from "../../configuration/api/BaseUrl";
 import { Link } from "react-router-dom";
+import CategoryPage from "../../pages/CategoryPage";
+import CategoryContext from "../../pages/CategoryContext";
+import ExploreBooks from "../Explore/ExploreBooks";
+import ExplorePage from "../../pages/Explore";
+import { Explore } from "@mui/icons-material";
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "#FFF",
@@ -41,14 +51,15 @@ const useStyles = makeStyles((theme) => ({
   },
   tab: {
     textTransform: "none",
-    fontSize: "0.78rem",
+    fontSize: "0.1rem",
     fontWeight: 700,
-    borderBottom: "2px solid transparent",
+    // borderBottom: "2px solid transparent",
     "&:hover": {
       textDecoration: "none",
       borderBottom: "2px solid #22C870",
     },
   },
+
   body: {
     bottom: "50",
   },
@@ -71,9 +82,25 @@ const NavBar = () => {
     setAnchorEl(event.currentTarget);
   };
 
+  const [booksCategory, setBooksCategory] = useState([]);
+
+  const handleGetByCategory = async (category: string) => {
+    // console.log(category);
+    const categoryResult = await api.get(
+      `/bookRepository/?category=${category}`
+    );
+    // <CategoryPage bookList={categoryResult}/>
+    // console.log(categoryResult.data)
+    setBooksCategory(categoryResult.data);
+  };
+
   return (
     <div>
-      <AppBar className={classes.root} style={{ background: "#FFF" }}>
+      <AppBar
+        className={classes.root}
+        style={{ background: "#FFF" }}
+        position='absolute'
+      >
         <Toolbar className={classes.content}>
           <img alt='company logo' src={logo} className={classes.logo} />
           <Tabs
@@ -86,9 +113,11 @@ const NavBar = () => {
               className={classes.tab}
               disableRipple
               label='Explore'
-              // onClick={openMenu}
-              to='/explore'
-              component={Link}
+              icon={<ExpandMoreIcon />}
+              iconPosition='end'
+              onClick={openMenu}
+              // to='/explore'
+              // component={Link}
             />
             <Tab
               className={classes.tab}
@@ -101,17 +130,35 @@ const NavBar = () => {
         </Toolbar>
       </AppBar>
 
-      <div className={classes.body}>
-        <Menu
-          id='menu-body'
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem>
-            <ExpandItems />
-          </MenuItem>
-        </Menu>
+      <Menu
+        marginThreshold={0}
+        style={{ top: "1px" }}
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        // onMouseLeave={handleClose}
+
+        PaperProps={{
+          style: {
+            width: "100%",
+            maxWidth: "100%",
+            left: 0,
+            right: 0,
+          },
+        }}
+      >
+        <ExploreMenu
+          handleMouseOut={() => {}}
+          handleGetByCategory={handleGetByCategory}
+        />
+      </Menu>
+
+      <div>
+        {/* {booksCategory && (
+          <CategoryContext.Provider value={booksCategory}>
+            <ExplorePage />
+          </CategoryContext.Provider>
+        )} */}
       </div>
     </div>
   );

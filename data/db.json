@@ -73,15 +73,6 @@
       "status": true
     },
     {
-      "id": 2,
-      "title": "Dropshipping",
-      "author": "James Moore",
-      "time": "20",
-      "category": "Entrepreneurship",
-      "image": "https://images.blinkist.com/images/books/60701b716cee070008b8b7a1/1_1/470.jpg",
-      "status": true
-    },
-    {
       "id": 4,
       "title": "Genesis",
       "author": "Guido Tonelli",
@@ -107,6 +98,24 @@
       "category": "Health",
       "image": "https://images.blinkist.com/images/books/60950a3c6cee070007151f86/1_1/470.jpg",
       "status": true
+    },
+    {
+      "title": "My first Book",
+      "author": "John",
+      "category": "Education",
+      "time": "13",
+      "status": true,
+      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg",
+      "id": 23
+    },
+    {
+      "id": 19,
+      "title": "title",
+      "author": "author",
+      "category": "Politics",
+      "time": "20",
+      "status": true,
+      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg"
     }
   ],
   "finished": [
@@ -122,6 +131,24 @@
   ],
   "bookRepository": [
     {
+      "id": 1,
+      "title": "Steve Jobs",
+      "author": "Walter Isaacson",
+      "time": "20",
+      "category": "Entrepreneurship",
+      "image": "https://images.blinkist.com/images/books/608a9c296cee070007228a21/1_1/470.jpg",
+      "status": true
+    },
+    {
+      "id": 2,
+      "title": "Dropshipping",
+      "author": "James Moore",
+      "time": "20",
+      "category": "Entrepreneurship",
+      "image": "https://images.blinkist.com/images/books/60701b716cee070008b8b7a1/1_1/470.jpg",
+      "status": true
+    },
+    {
       "id": 11,
       "title": "Get Better",
       "author": "Todd Davis",
@@ -129,15 +156,6 @@
       "category": "Communcation skills",
       "image": "https://images.blinkist.com/images/books/608a764b6cee070007228924/1_1/470.jpg",
       "status": true
-    },
-    {
-      "title": "My first Book",
-      "author": "John",
-      "category": "Education",
-      "time": "13",
-      "status": true,
-      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg",
-      "id": 23
     },
     {
       "id": 18,

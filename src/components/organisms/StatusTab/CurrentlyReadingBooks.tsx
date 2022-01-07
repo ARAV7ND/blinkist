@@ -1,4 +1,4 @@
-import api from "./BaseUrl";
+import api from "../../configuration/api/BaseUrl";
 import React, { useState, useEffect } from "react";
 import BookGrid from "../Grid/BookGrid/BookGrid";
 

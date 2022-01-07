@@ -19,7 +19,7 @@ interface BookList {
 
 const BookGrid = ({ bookList, visible, handleCard, handleClick }: BookList) => {
   return (
-    <Grid container spacing={2}>
+    <Grid container rowGap={1}>
       {bookList.map((book) => (
         <Grid item key={book.id} md={4} sm={6} xs={12}>
           <BookCard

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import BookGrid from "../Grid/BookGrid/BookGrid";
-import api from "./BaseUrl";
+import api from "../../configuration/api/BaseUrl";
 export default function FinishedBooks() {
   const [books, setBooks] = useState(new Array());
 

@@ -1,6 +1,6 @@
 import { CustomButtom } from "./Button";
 import { ThemeProvider } from "@material-ui/core";
-import theme from "../../../Theme/theme";
+import theme from "../../configuration/Theme/theme";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {

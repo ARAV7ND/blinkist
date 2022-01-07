@@ -7,6 +7,14 @@ export default {
   component: ExploreMenu,
 } as ComponentMeta<typeof ExploreMenu>;
 
-const Template: ComponentStory<typeof ExploreMenu> = () => <ExploreMenu />;
+const Template: ComponentStory<typeof ExploreMenu> = (args) => (
+  <ExploreMenu {...args} />
+);
 
 export const ExpandList = Template.bind({});
+
+const handle = (category: string) => {};
+
+ExpandList.args = {
+  handleGetByCategory: handle,
+};

@@ -17,12 +17,15 @@ import AddIcon from "@mui/icons-material/Add";
 const useStyles = makeStyles({
   root: {
     // width: "100%",
-    maxWidth: 296,
+    // display: "flex",
+    // flexGrow: 1,
+    maxWidth: 206,
+    // maxHeight: 509,
     // margin: 35,
     // marginRight: 50,
     // height: 509,
-    // border: "none",
-    // boxShadow: "none",
+    border: "none",
+    boxShadow: "none",
   },
   image: {
     width: "100%",
@@ -37,7 +40,7 @@ const useStyles = makeStyles({
     padding: 0,
     margin: 0,
     justifyContent: "space-evenly",
-    border: "1px transparent",
+    border: "1px solid",
   },
   icon: {
     minWidth: "30px",
@@ -45,6 +48,7 @@ const useStyles = makeStyles({
   actions: {
     // margin: 12,
     // justifyContent: "center",
+    padding: 0,
   },
 });
 
@@ -81,23 +85,29 @@ export function BookCard({
         />
 
         <CardContent className={styles.content}>
-          <Typography variant='h5'>{book.title}</Typography>
-          <Typography variant='subtitle1'>{book.author}</Typography>
-          {/* <Typography>{book.category}</Typography> */}
+          <Box>
+            <Typography variant='h5'>{book.title}</Typography>
+            <Typography variant='subtitle1'>{book.author}</Typography>
+            {/* <Typography>{book.category}</Typography> */}
+            {/* <ListItem>
+              <ListItemIcon style={{ minWidth: 30 }}>
+                <TimeIcon />
+              </ListItemIcon>
+              <ListItemText>{book.time} minutes read</ListItemText>
+            </ListItem> */}
+            <Typography variant='body2'>
+              <TimeIcon fontSize='small' />
+              &nbsp; {book.time} minutes read
+            </Typography>
+          </Box>
         </CardContent>
 
-        <ListItem>
-          <ListItemIcon className={styles.icon}>
-            <TimeIcon />
-          </ListItemIcon>
-          <ListItemText>{book.time} minutes read</ListItemText>
-        </ListItem>
         <Box display={visible}>
-          <CardActions>
+          <CardActions style={{ padding: 0 }}>
             <CustomButtom
               label='Add to library'
               startIcon={<AddIcon />}
-              variant='contained'
+              variant='outlined'
               color='primary'
               size='large'
               width={true}
