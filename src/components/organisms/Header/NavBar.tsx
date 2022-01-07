@@ -17,6 +17,7 @@ import {
 import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import NavButton from "../../Atoms/Button/NavButton/NavButton";
@@ -25,11 +26,10 @@ import { useState } from "react";
 import ExpandItems, { ExploreMenu } from "../../Molecules/Menu/ExploreMenu";
 import api from "../../configuration/api/BaseUrl";
 import { Link } from "react-router-dom";
-import CategoryPage from "../../pages/CategoryPage";
-import CategoryContext from "../../pages/CategoryContext";
 import ExploreBooks from "../Explore/ExploreBooks";
 import ExplorePage from "../../pages/Explore";
 import { Explore } from "@mui/icons-material";
+import StatusTab from "../StatusTab/StatusTab";
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "#FFF",
@@ -65,11 +65,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavBar = () => {
+type NavBarProps = {
+  handleGetByCategory: (category: string) => void;
+};
+
+export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
   const classes = useStyles();
 
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  React.useEffect(() => {});
 
   const handleChange = (e: React.SyntheticEvent, value: number) => {
     setValue(value);
@@ -78,21 +83,23 @@ const NavBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  var flag: boolean = false;
   const openMenu = (event: React.MouseEvent<HTMLElement>) => {
+    // console.log(flag);
     setAnchorEl(event.currentTarget);
   };
+  let icon = flag ? "ExpandMoreIcon" : "ExpandLessIcon";
+  // const [booksCategory, setBooksCategory] = useState([]);
 
-  const [booksCategory, setBooksCategory] = useState([]);
-
-  const handleGetByCategory = async (category: string) => {
-    // console.log(category);
-    const categoryResult = await api.get(
-      `/bookRepository/?category=${category}`
-    );
-    // <CategoryPage bookList={categoryResult}/>
-    // console.log(categoryResult.data)
-    setBooksCategory(categoryResult.data);
-  };
+  // const handleGetByCategory = async (category: string) => {
+  //   // console.log(category);
+  //   const categoryResult = await api.get(
+  //     `/bookRepository/?category=${category}`
+  //   );
+  //   // <CategoryPage bookList={categoryResult}/>
+  //   // console.log(categoryResult.data)
+  //   setBooksCategory(categoryResult.data);
+  // };
 
   return (
     <div>
@@ -152,14 +159,6 @@ const NavBar = () => {
           handleGetByCategory={handleGetByCategory}
         />
       </Menu>
-
-      <div>
-        {/* {booksCategory && (
-          <CategoryContext.Provider value={booksCategory}>
-            <ExplorePage />
-          </CategoryContext.Provider>
-        )} */}
-      </div>
     </div>
   );
 };

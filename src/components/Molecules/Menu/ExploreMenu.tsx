@@ -61,8 +61,8 @@ export const ExploreMenu = ({
                 size='small'
                 startIcon={<RocketIcon />}
                 onClick={() => handleGetByCategory("Entrepreneurship")}
-                component={Link}
-                to='/bookRepository/:category'
+                // component={Link}
+                // to='/bookRepository/:category'
               >
                 Enterprenourship
               </Button>
