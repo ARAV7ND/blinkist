@@ -1,21 +1,35 @@
 import * as React from "react";
-import { Tab, Tabs } from "@mui/material";
-import AvailableBooks from "./CurrentlyReadingBooks";
+import { Container, Tab, Tabs } from "@mui/material";
+import CurrentlyReadingBooks from "./CurrentlyReadingBooks";
 import FinishedBooks from "./FinishedBooks";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  tabs: {
+  root: {
     // "& .MuiButtonBase-root.MuiTab-root": {
     //   fontSize: 20,
     // },
     // "& .Mui-selected": {
     //   textDecoration: "underline",
     // },
+    width: "60%",
   },
 });
 
-const StatusTab = () => {
+interface Ibook {
+  id: number;
+  title: string;
+  author: string;
+  category: string;
+  image: string;
+  status: boolean;
+  time: string;
+}
+interface statusProps {
+  handleCard?: (tempBook: Ibook) => void;
+}
+
+const StatusTab = ({ handleCard }: statusProps) => {
   // const routes = ["/reading", "/finished"];
   const styles = useStyles();
   const [selectedTab, setSelectedTab] = React.useState(0);
@@ -24,21 +38,16 @@ const StatusTab = () => {
     setSelectedTab(newValue);
   };
   return (
-    <>
-      <Tabs
-        className={styles.tabs}
-        value={selectedTab}
-        onChange={handleChange}
-        centered
-      >
-        <Tab disableRipple label='Currently reading' />
-        <Tab disableRipple label='Finished' />
+    <Container>
+      <Tabs value={selectedTab} onChange={handleChange}>
+        <Tab disableRipple label='Currently reading' className={styles.root} />
+        <Tab disableRipple label='Finished' className={styles.root} />
       </Tabs>
       <div style={{ margin: 30 }}>
-        {selectedTab === 0 && <AvailableBooks />}
+        {selectedTab === 0 && <CurrentlyReadingBooks handleCard={handleCard} />}
         {selectedTab === 1 && <FinishedBooks />}
       </div>
-    </>
+    </Container>
   );
 };
 

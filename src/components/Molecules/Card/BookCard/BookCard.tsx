@@ -12,15 +12,15 @@ import {
 import * as React from "react";
 import { makeStyles } from "@material-ui/styles";
 import TimeIcon from "@mui/icons-material/AccessTime";
-import { CustomButtom } from "../../../Atoms/Button/Button";
 import AddIcon from "@mui/icons-material/Add";
+import statusBar from "../../../../assets/statusBar.png";
+import CustomButton from "../../../Atoms/Button/Button";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     // width: "100%",
-    // display: "flex",
-    // flexGrow: 1,
-    maxWidth: 206,
-    // maxHeight: 509,
+    maxWidth: 284,
+    maxHeight: 466,
     // margin: 35,
     // marginRight: 50,
     // height: 509,
@@ -28,20 +28,23 @@ const useStyles = makeStyles({
     boxShadow: "none",
   },
   image: {
-    width: "100%",
-    // width: 296,
-    maxHeight: 296,
+    // width: "100%",
+    width: "285px",
+    maxHeight: "287px",
     border: "none",
     boxShadow: "none",
   },
   content: {
     display: "flex",
     flexDirection: "column",
-    padding: 0,
-    margin: 0,
-    justifyContent: "space-evenly",
-    border: "1px solid",
+    padding: "0",
+    margin: "0",
+    // justifyContent: "space-evenly",
+    textAlign: "left",
+    // border: "1px transparent",
+    borderBottom: "1px solid #E1ECFC",
   },
+
   icon: {
     minWidth: "30px",
   },
@@ -52,19 +55,20 @@ const useStyles = makeStyles({
   },
 });
 
+interface Book {
+  id: number;
+  title: string;
+  author: string;
+  category: string;
+  image: string;
+  status: boolean;
+  time: string;
+}
 type BookCardProps = {
-  book: {
-    id?: number;
-    title: string;
-    author: string;
-    category: string;
-    image: string;
-    status?: boolean;
-    time: string;
-  };
+  book: Book;
   handleClick: () => void;
-  handleCard?: () => void;
-  visible: "none" | "inline";
+  handleCard?: (tempBook: Book) => void;
+  visible: boolean;
 };
 
 export function BookCard({
@@ -74,9 +78,16 @@ export function BookCard({
   handleClick,
 }: BookCardProps) {
   const styles = useStyles();
+  const flag: string = book.status ? "none" : "inline";
+  const set: string = book.status ? "inline" : "none";
   return (
-    <div onClick={handleCard} style={{ cursor: "pointer" }}>
-      <Card className={styles.root}>
+    <Card className={styles.root}>
+      <Box
+        to='/browse'
+        component={Link}
+        style={{ textDecoration: "none" }}
+        onClick={() => handleCard && handleCard(book)}
+      >
         <CardMedia
           className={styles.image}
           component='img'
@@ -86,37 +97,33 @@ export function BookCard({
 
         <CardContent className={styles.content}>
           <Box>
-            <Typography variant='h5'>{book.title}</Typography>
-            <Typography variant='subtitle1'>{book.author}</Typography>
-            {/* <Typography>{book.category}</Typography> */}
-            {/* <ListItem>
-              <ListItemIcon style={{ minWidth: 30 }}>
-                <TimeIcon />
-              </ListItemIcon>
-              <ListItemText>{book.time} minutes read</ListItemText>
-            </ListItem> */}
-            <Typography variant='body2'>
+            <Typography variant='subtitle2'>{book.title}</Typography>
+            <Typography variant='body1'>{book.author}</Typography>
+            <Typography variant='caption'>
               <TimeIcon fontSize='small' />
               &nbsp; {book.time} minutes read
             </Typography>
           </Box>
         </CardContent>
+      </Box>
+      <Box display={flag}>
+        <CardActions style={{ padding: 0 }}>
+          <CustomButton
+            label='Add to library'
+            startIcon={<AddIcon />}
+            variant='outlined'
+            color='secondary'
+            size='large'
+            width={true}
+            handleClick={handleClick}
+          />
+        </CardActions>
+      </Box>
 
-        <Box display={visible}>
-          <CardActions style={{ padding: 0 }}>
-            <CustomButtom
-              label='Add to library'
-              startIcon={<AddIcon />}
-              variant='outlined'
-              color='primary'
-              size='large'
-              width={true}
-              handleClick={handleClick}
-            />
-          </CardActions>
-        </Box>
-      </Card>
-    </div>
+      <Box display={set}>
+        <CardMedia src={statusBar} component='img' />
+      </Box>
+    </Card>
   );
 }
 

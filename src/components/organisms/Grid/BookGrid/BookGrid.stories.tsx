@@ -3,7 +3,7 @@ import * as React from "react";
 import BookGrid from "./BookGrid";
 
 export default {
-  title: "orgainisms/Book",
+  title: "organisms/BookGrid",
   component: BookGrid,
 } as ComponentMeta<typeof BookGrid>;
 

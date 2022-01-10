@@ -14,18 +14,20 @@ const Template: ComponentStory<typeof BookCard> = (args) => (
 export const bookCard = Template.bind({});
 
 const tempBook = {
+  id: 20,
   title: "steve jobs",
   author: "Walter Isaacson",
   image:
     "https://images.blinkist.com/images/books/608a9c296cee070007228a21/1_1/470.jpg",
   time: "12",
   category: "Biography",
+  status: true,
 };
 
 const tempClick = () => {};
 
 bookCard.args = {
   book: tempBook,
-  visible: "none",
+  visible: true,
   handleClick: tempClick,
 };

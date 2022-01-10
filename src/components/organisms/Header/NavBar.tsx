@@ -1,8 +1,5 @@
 import { makeStyles } from "@material-ui/styles";
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   AppBar,
   Container,
   Grid,
@@ -30,18 +27,24 @@ import ExploreBooks from "../Explore/ExploreBooks";
 import ExplorePage from "../../pages/Explore";
 import { Explore } from "@mui/icons-material";
 import StatusTab from "../StatusTab/StatusTab";
-const useStyles = makeStyles((theme) => ({
+import { ThemeProvider } from "@mui/material";
+const useStyles = makeStyles({
   root: {
-    background: "#FFF",
+    width: "100%",
+    // height: "86px",
   },
+  // content: {
+  //   top: "30%",
+  //   bottom: "30%",
+  //   left: "250px",
+  // },
   logo: {
-    height: 29,
-    width: 100,
+    height: "26px",
+    width: "124.09px",
+
     cursor: "pointer",
   },
-  content: {
-    justifyContent: "center",
-  },
+
   tabContainer: {
     color: "black",
     "& .MuiTabs-indicator": {
@@ -51,9 +54,8 @@ const useStyles = makeStyles((theme) => ({
   },
   tab: {
     textTransform: "none",
-    fontSize: "0.1rem",
-    fontWeight: 700,
-    // borderBottom: "2px solid transparent",
+    // fontSize: "2rem",
+    fontSize: "50px",
     "&:hover": {
       textDecoration: "none",
       borderBottom: "2px solid #22C870",
@@ -63,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   body: {
     bottom: "50",
   },
-}));
+});
 
 type NavBarProps = {
   handleGetByCategory: (category: string) => void;
@@ -80,82 +82,70 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
     setValue(value);
   };
 
+  var flag: boolean = false;
   const handleClose = () => {
+    flag = true;
     setAnchorEl(null);
   };
-  var flag: boolean = false;
+
   const openMenu = (event: React.MouseEvent<HTMLElement>) => {
-    // console.log(flag);
+    flag = false;
     setAnchorEl(event.currentTarget);
   };
-  let icon = flag ? "ExpandMoreIcon" : "ExpandLessIcon";
-  // const [booksCategory, setBooksCategory] = useState([]);
-
-  // const handleGetByCategory = async (category: string) => {
-  //   // console.log(category);
-  //   const categoryResult = await api.get(
-  //     `/bookRepository/?category=${category}`
-  //   );
-  //   // <CategoryPage bookList={categoryResult}/>
-  //   // console.log(categoryResult.data)
-  //   setBooksCategory(categoryResult.data);
-  // };
 
   return (
     <div>
-      <AppBar
-        className={classes.root}
-        style={{ background: "#FFF" }}
-        position='absolute'
-      >
-        <Toolbar className={classes.content}>
-          <img alt='company logo' src={logo} className={classes.logo} />
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            className={classes.tabContainer}
-          >
-            <Tab disableRipple icon={<SearchIcon />} />
-            <Tab
-              className={classes.tab}
-              disableRipple
-              label='Explore'
-              icon={<ExpandMoreIcon />}
-              iconPosition='end'
-              onClick={openMenu}
-              // to='/explore'
-              // component={Link}
-            />
-            <Tab
-              className={classes.tab}
-              disableRipple
-              label='My Library'
-              to='/library'
-              component={Link}
-            />
-          </Tabs>
-        </Toolbar>
+      <AppBar className={classes.root} position='absolute'>
+        <Container>
+          <Toolbar>
+            <img alt='company logo' src={logo} className={classes.logo} />
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              className={classes.tabContainer}
+            >
+              <Tab icon={<SearchIcon />} />
+              <Tab
+                className={classes.tab}
+                label='Explore'
+                icon={flag ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+                iconPosition='end'
+                onClick={openMenu}
+                // to='/explore'
+                // component={Link}
+              />
+              <Tab
+                className={classes.tab}
+                label='My Library'
+                to='/library'
+                component={Link}
+              />
+              <Tab label='Account' />
+            </Tabs>
+          </Toolbar>
+        </Container>
       </AppBar>
 
       <Menu
         marginThreshold={0}
-        style={{ top: "1px" }}
+        style={{ top: "1px", height: "auto" }}
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        // onMouseLeave={handleClose}
-
+        onMouseLeave={handleClose}
         PaperProps={{
           style: {
             width: "100%",
             maxWidth: "100%",
             left: 0,
             right: 0,
+            backgroundColor: "#F1F6F4",
+            boxShadow: "0 0 0",
           },
         }}
       >
         <ExploreMenu
-          handleMouseOut={() => {}}
+          handleMouseOut={handleClose}
           handleGetByCategory={handleGetByCategory}
         />
       </Menu>

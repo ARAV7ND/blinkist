@@ -14,11 +14,12 @@ interface Book {
 }
 interface BookList {
   bookList: Array<Book>;
+  handleClick: (book: Book) => void;
 }
-const ExplorePage = ({ bookList }: BookList) => {
+const ExplorePage = ({ bookList, handleClick }: BookList) => {
   return (
-    <Container maxWidth='md' style={{ margin: 100 }}>
-      <ExploreBooks bookList={bookList} />
+    <Container style={{ margin: 100, marginLeft: 259, marginRight: 259 }}>
+      <ExploreBooks bookList={bookList} handleClick={handleClick} />
     </Container>
   );
 };

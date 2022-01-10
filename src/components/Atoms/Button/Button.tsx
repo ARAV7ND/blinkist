@@ -1,17 +1,17 @@
 import * as React from "react";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 type ButtonProps = {
   variant: "outlined" | "contained";
   color: "primary" | "secondary";
   label: string;
-  size: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   width?: boolean;
   handleClick: () => void;
 };
 
-export const CustomButtom = ({
+export const CustomButton = ({
   variant,
   color,
   label,
@@ -35,3 +35,4 @@ export const CustomButtom = ({
     </Button>
   );
 };
+export default CustomButton;

@@ -20,17 +20,24 @@ import {
   TableCell,
   TableHead,
 } from "@material-ui/core";
+import theme from "../../configuration/Theme/theme";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#F2FFE9",
+    marginLeft: 259,
+    marginRight: 259,
   },
   menu: {
     // padding: 0,
   },
-});
+  buttonStyle: {
+    "&:hover": {
+      color: "#0365F2",
+    },
+  },
+}));
 
 type ExploreMenuProps = {
   handleGetByCategory: (category: string) => void;
@@ -43,12 +50,8 @@ export const ExploreMenu = ({
 }: ExploreMenuProps) => {
   const classes = useStyles();
   return (
-    <Container
-      onMouseOut={handleMouseOut}
-      maxWidth='sm'
-      className={classes.root}
-    >
-      <TableContainer>
+    <Container onMouseLeave={handleMouseOut} className={classes.root}>
+      {/* <TableContainer>
         <Table className={classes.menu}>
           <TableHead>
             <TableRow>
@@ -61,8 +64,8 @@ export const ExploreMenu = ({
                 size='small'
                 startIcon={<RocketIcon />}
                 onClick={() => handleGetByCategory("Entrepreneurship")}
-                // component={Link}
-                // to='/bookRepository/:category'
+                component={Link}
+                to='/bookRepository/:category'
               >
                 Enterprenourship
               </Button>
@@ -126,7 +129,93 @@ export const ExploreMenu = ({
             </TableCell>
           </TableRow>
         </Table>
-      </TableContainer>
+      </TableContainer> */}
+
+      <Grid container direction='row'>
+        <Grid item md={12} sm={12} xs={12}>
+          <Typography
+            variant='subtitle2'
+            style={{ borderBottom: "1px solid black" }}
+          >
+            Explore by category
+          </Typography>
+        </Grid>
+        <Grid item md={4}>
+          <Button
+            disableFocusRipple={true}
+            className={classes.buttonStyle}
+            size='small'
+            startIcon={<RocketIcon />}
+            onClick={() => handleGetByCategory("Entrepreneurship")}
+            component={Link}
+            to='/bookRepository/:category'
+          >
+            Enterprenourship
+          </Button>
+        </Grid>
+
+        <Grid item md={4} sm={6} xs={12}>
+          <Button
+            className={classes.buttonStyle}
+            size='small'
+            startIcon={<FitnessCenterIcon />}
+            onClick={() => handleGetByCategory("Health")}
+            component={Link}
+            to='/bookRepository/:category'
+          >
+            Health
+          </Button>
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+          <Button
+            className={classes.buttonStyle}
+            size='small'
+            startIcon={<SchoolIcon />}
+            onClick={() => handleGetByCategory("Education")}
+            component={Link}
+            to='/bookRepository/:category'
+          >
+            Education
+          </Button>
+        </Grid>
+
+        <Grid item md={4} sm={6} xs={12}>
+          <Button
+            className={classes.buttonStyle}
+            size='small'
+            startIcon={<AccountBalanceIcon />}
+            onClick={() => handleGetByCategory("Politics")}
+            component={Link}
+            to='/bookRepository/:category'
+          >
+            Politics
+          </Button>
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+          <Button
+            className={classes.buttonStyle}
+            size='small'
+            startIcon={<PublicIcon />}
+            onClick={() => handleGetByCategory("Economics")}
+            component={Link}
+            to='/bookRepository/:category'
+          >
+            Economics
+          </Button>
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+          <Button
+            className={classes.buttonStyle}
+            size='small'
+            startIcon={<ScienceIcon />}
+            onClick={() => handleGetByCategory("Science")}
+            component={Link}
+            to='/bookRepository/:category'
+          >
+            Science
+          </Button>
+        </Grid>
+      </Grid>
       {/* </Box> */}
     </Container>
   );

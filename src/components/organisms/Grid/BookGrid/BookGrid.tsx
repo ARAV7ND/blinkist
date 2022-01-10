@@ -13,7 +13,7 @@ interface Book {
 interface BookList {
   bookList: Array<Book>;
   handleClick: (book: Book) => void;
-  handleCard?: () => void;
+  handleCard?: (book: Book) => void;
   visible: "none" | "inline";
 }
 
@@ -28,7 +28,7 @@ const BookGrid = ({ bookList, visible, handleCard, handleClick }: BookList) => {
               handleClick(book);
             }}
             handleCard={handleCard}
-            visible={visible}
+            visible={book.status}
           />
         </Grid>
       ))}

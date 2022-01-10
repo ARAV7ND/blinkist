@@ -1,7 +1,7 @@
 import api from "../../configuration/api/BaseUrl";
 import React, { useState, useEffect } from "react";
 import BookGrid from "../Grid/BookGrid/BookGrid";
-
+import { Box } from "@material-ui/core";
 interface Ibook {
   id: number;
   title: string;
@@ -11,10 +11,14 @@ interface Ibook {
   status: boolean;
   time: string;
 }
+interface CurrentlyReadingBooksProps {
+  handleCard?: (tempBook: Ibook) => void;
+}
 
-export default function AvailableBooks() {
+export default function CurrentlyReadingBooks({
+  handleCard,
+}: CurrentlyReadingBooksProps) {
   const [books, setBooks] = useState([]);
-
   const retriveBooks = async () => {
     const response = await api.get("/books");
     return response.data;
@@ -56,19 +60,14 @@ export default function AvailableBooks() {
   };
 
   const handleClick = (book: Ibook) => {
-    // console.log(book);
-
     handleAddToLibrary(book);
-    // console.log(event);
-
-    // bookHandler(event.target.value);
   };
 
-  const handleCard = (book?: Ibook) => {
-    console.log("card clicked");
-  };
+  // const handleCard = (book?: Ibook) => {
+  //   console.log("handle", book);
+  // };
   return (
-    <div>
+    <Box>
       {books && (
         <BookGrid
           bookList={books}
@@ -77,7 +76,6 @@ export default function AvailableBooks() {
           visible='none'
         />
       )}
-      {/* <h1>current Books</h1> */}
-    </div>
+    </Box>
   );
 }
