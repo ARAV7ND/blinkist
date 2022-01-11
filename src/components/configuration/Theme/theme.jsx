@@ -97,10 +97,10 @@ export const theme = createTheme({
     MuiToolbar: {
       styleOverrides: {
         root: {
-          fontSize: "0.9rem",
+          fontSize: "3rem",
           top: "30%",
           bottom: "30%",
-          left: "250px",
+          // left: "250px",
         },
       },
     },
@@ -135,6 +135,13 @@ export const theme = createTheme({
         },
       },
     },
+
+    // MuiGrid: {
+    //   container: {
+    //     margin: 0,
+    //     width: "100%",
+    //   },
+    // },
   },
 });
 export default theme;

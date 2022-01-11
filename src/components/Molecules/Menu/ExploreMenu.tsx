@@ -4,7 +4,10 @@ import PublicIcon from "@mui/icons-material/Public";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import SchoolIcon from "@mui/icons-material/School";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import Divider from "@mui/material/Divider";
+
 import * as React from "react";
+
 import {
   Grid,
   MenuItem,
@@ -51,97 +54,16 @@ export const ExploreMenu = ({
   const classes = useStyles();
   return (
     <Container onMouseLeave={handleMouseOut} className={classes.root}>
-      {/* <TableContainer>
-        <Table className={classes.menu}>
-          <TableHead>
-            <TableRow>
-              <Typography>Explore by catergory</Typography>
-            </TableRow>
-          </TableHead>
-          <TableRow>
-            <TableCell>
-              <Button
-                size='small'
-                startIcon={<RocketIcon />}
-                onClick={() => handleGetByCategory("Entrepreneurship")}
-                component={Link}
-                to='/bookRepository/:category'
-              >
-                Enterprenourship
-              </Button>
-            </TableCell>
-            <TableCell>
-              <Button
-                size='small'
-                startIcon={<ScienceIcon />}
-                onClick={() => handleGetByCategory("Science")}
-                component={Link}
-                to='/bookRepository/:category'
-              >
-                Science
-              </Button>
-            </TableCell>
-            <TableCell>
-              <Button
-                size='small'
-                startIcon={<PublicIcon />}
-                onClick={() => handleGetByCategory("Economics")}
-                component={Link}
-                to='/bookRepository/:category'
-              >
-                Economics
-              </Button>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <Button
-                size='small'
-                startIcon={<AccountBalanceIcon />}
-                onClick={() => handleGetByCategory("Politics")}
-                component={Link}
-                to='/bookRepository/:category'
-              >
-                Politics
-              </Button>
-            </TableCell>
-            <TableCell>
-              <Button
-                size='small'
-                startIcon={<SchoolIcon />}
-                onClick={() => handleGetByCategory("Education")}
-                component={Link}
-                to='/bookRepository/:category'
-              >
-                Education
-              </Button>
-            </TableCell>
-            <TableCell>
-              <Button
-                size='small'
-                startIcon={<FitnessCenterIcon />}
-                onClick={() => handleGetByCategory("Health")}
-                component={Link}
-                to='/bookRepository/:category'
-              >
-                Health
-              </Button>
-            </TableCell>
-          </TableRow>
-        </Table>
-      </TableContainer> */}
-
       <Grid container direction='row'>
         <Grid item md={12} sm={12} xs={12}>
-          <Typography
-            variant='subtitle2'
-            style={{ borderBottom: "1px solid black" }}
-          >
+          <Typography variant='subtitle2'>
             Explore by category
+            <Divider />
           </Typography>
         </Grid>
         <Grid item md={4}>
           <Button
+            disableRipple={true}
             disableFocusRipple={true}
             className={classes.buttonStyle}
             size='small'

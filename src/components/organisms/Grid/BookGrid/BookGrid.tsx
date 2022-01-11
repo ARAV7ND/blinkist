@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import * as React from "react";
 import BookCard from "../../../Molecules/Card/BookCard/BookCard";
 interface Book {
@@ -19,20 +19,30 @@ interface BookList {
 
 const BookGrid = ({ bookList, visible, handleCard, handleClick }: BookList) => {
   return (
-    <Grid container rowGap={1}>
-      {bookList.map((book) => (
-        <Grid item key={book.id} md={4} sm={6} xs={12}>
-          <BookCard
-            book={book}
-            handleClick={() => {
-              handleClick(book);
-            }}
-            handleCard={handleCard}
-            visible={book.status}
-          />
-        </Grid>
-      ))}
-    </Grid>
+    <Box style={{ overflow: "auto" }}>
+      <Grid
+        container
+        rowGap={1}
+        spacing={0}
+        style={{
+          margin: 0,
+          width: "100%",
+        }}
+      >
+        {bookList.map((book) => (
+          <Grid item key={book.id} md={4} sm={6} xs={12}>
+            <BookCard
+              book={book}
+              handleClick={() => {
+                handleClick(book);
+              }}
+              handleCard={handleCard}
+              visible={book.status}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

@@ -15,8 +15,13 @@ interface Ibook {
 interface IBookList {
   bookList: Array<Ibook>;
   handleClick: (book: Ibook) => void;
+  handleCard?: (tempBook: Ibook) => void;
 }
-export default function ExploreBooks({ bookList, handleClick }: IBookList) {
+export default function ExploreBooks({
+  bookList,
+  handleClick,
+  handleCard,
+}: IBookList) {
   // const handleClick = async (book: Ibook) => {
   //   book.status = true;
   //   console.log(book.status);
@@ -40,6 +45,7 @@ export default function ExploreBooks({ bookList, handleClick }: IBookList) {
           <BookGrid
             bookList={bookList}
             handleClick={handleClick}
+            handleCard={handleCard && handleCard}
             visible='inline'
           />
         )}

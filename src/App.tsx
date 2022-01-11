@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import AddIcon from "@mui/icons-material/Add";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "./components/configuration/Theme/theme";
@@ -10,7 +8,6 @@ import HomePage from "./components/pages/MyLibrary";
 import ExplorePage from "./components/pages/Explore";
 import api from "./components/configuration/api/BaseUrl";
 import Browse from "./components/organisms/Browse/Browse";
-import { Container } from "@mui/material";
 
 interface Ibook {
   id: number;
@@ -44,10 +41,12 @@ function App() {
     console.log(categoryResult.data);
   };
   // var theBook: Ibook;
+
   const handleCard = (book: Ibook) => {
-    console.log("handler:");
+    console.log("handler:", book);
     setBook(book);
   };
+
   return (
     <div className='App' style={{ margin: 10 }}>
       <ThemeProvider theme={theme}>
@@ -66,10 +65,16 @@ function App() {
                 <ExplorePage
                   bookList={booksByCategory}
                   handleClick={handleClick}
+                  handleCard={handleCard}
                 />
               }
             />
-            <Route path='/browse' element={<Browse book={theBook} />} />
+            <Route
+              path='/browse'
+              element={
+                <Browse book={theBook} handleAddTolibrary={handleClick} />
+              }
+            />
           </Routes>
         </Router>
       </ThemeProvider>

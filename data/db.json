@@ -35,6 +35,15 @@
       "status": true,
       "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg",
       "id": 21
+    },
+    {
+      "id": 19,
+      "title": "title",
+      "author": "author",
+      "category": "Politics",
+      "time": "20",
+      "status": true,
+      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg"
     }
   ],
   "finished": [
@@ -73,6 +82,15 @@
       "category": "Science",
       "image": "https://images.blinkist.com/images/books/60507e296cee070007c4dc7e/1_1/470.jpg",
       "status": true
+    },
+    {
+      "id": 3,
+      "title": "The Bully Pulpit",
+      "author": "Goodwin",
+      "time": "19",
+      "category": "Politics",
+      "image": "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/250.jpg",
+      "status": true
     }
   ],
   "bookRepository": [
@@ -92,7 +110,7 @@
       "time": "19",
       "category": "Politics",
       "image": "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/250.jpg",
-      "status": false
+      "status": true
     },
     {
       "id": 2,
@@ -163,7 +181,7 @@
       "author": "author",
       "category": "Politics",
       "time": "20",
-      "status": false,
+      "status": true,
       "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg"
     },
     {

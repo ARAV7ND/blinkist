@@ -1,15 +1,5 @@
-import { makeStyles } from "@material-ui/styles";
-import {
-  AppBar,
-  Container,
-  Grid,
-  Menu,
-  MenuItem,
-  Tab,
-  Tabs,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+// import { makeStyles } from "@material-ui/styles";
+import { AppBar, Container, Menu, Tab, Tabs, Toolbar } from "@mui/material";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
@@ -17,17 +7,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
-import NavButton from "../../Atoms/Button/NavButton/NavButton";
-// import theme from "../../../Theme/theme";
 import { useState } from "react";
 import ExpandItems, { ExploreMenu } from "../../Molecules/Menu/ExploreMenu";
 import api from "../../configuration/api/BaseUrl";
 import { Link } from "react-router-dom";
-import ExploreBooks from "../Explore/ExploreBooks";
-import ExplorePage from "../../pages/Explore";
-import { Explore } from "@mui/icons-material";
-import StatusTab from "../StatusTab/StatusTab";
-import { ThemeProvider } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -41,7 +25,7 @@ const useStyles = makeStyles({
   logo: {
     height: "26px",
     width: "124.09px",
-
+    color: "black",
     cursor: "pointer",
   },
 
@@ -55,7 +39,8 @@ const useStyles = makeStyles({
   tab: {
     textTransform: "none",
     // fontSize: "2rem",
-    fontSize: "50px",
+    marginLeft: "50px",
+    // fontSize: "50px",
     "&:hover": {
       textDecoration: "none",
       borderBottom: "2px solid #22C870",
@@ -95,8 +80,8 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
 
   return (
     <div>
-      <AppBar className={classes.root} position='absolute'>
-        <Container>
+      <Container style={{ marginLeft: 259, marginRight: 259 }}>
+        <AppBar className={classes.root} position='sticky'>
           <Toolbar>
             <img alt='company logo' src={logo} className={classes.logo} />
             <Tabs
@@ -104,13 +89,14 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
               onChange={handleChange}
               className={classes.tabContainer}
             >
-              <Tab icon={<SearchIcon />} />
+              {/* <Tab icon={<SearchIcon />} /> */}
               <Tab
                 className={classes.tab}
                 label='Explore'
                 icon={flag ? <ExpandMoreIcon /> : <ExpandLessIcon />}
                 iconPosition='end'
                 onClick={openMenu}
+
                 // to='/explore'
                 // component={Link}
               />
@@ -123,9 +109,8 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
               <Tab label='Account' />
             </Tabs>
           </Toolbar>
-        </Container>
-      </AppBar>
-
+        </AppBar>
+      </Container>
       <Menu
         marginThreshold={0}
         style={{ top: "1px", height: "auto" }}

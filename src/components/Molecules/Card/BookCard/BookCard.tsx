@@ -80,6 +80,7 @@ export function BookCard({
   const styles = useStyles();
   const flag: string = book.status ? "none" : "inline";
   const set: string = book.status ? "inline" : "none";
+
   return (
     <Card className={styles.root}>
       <Box
@@ -115,7 +116,7 @@ export function BookCard({
             color='secondary'
             size='large'
             width={true}
-            handleClick={handleClick}
+            handleClick={() => handleClick}
           />
         </CardActions>
       </Box>

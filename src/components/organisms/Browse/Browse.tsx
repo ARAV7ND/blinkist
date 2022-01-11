@@ -3,7 +3,6 @@ import * as React from "react";
 import TimeIcon from "@mui/icons-material/AccessTime";
 import { makeStyles } from "@mui/styles";
 import api from "../../configuration/api/BaseUrl";
-import { Navigate } from "react-router-dom";
 interface Book {
   id: number;
   title: string;
@@ -15,6 +14,7 @@ interface Book {
 }
 type BookProps = {
   book?: Book;
+  handleAddTolibrary: (book: Book) => void;
 };
 
 const useStyles = makeStyles({
@@ -29,7 +29,11 @@ const useStyles = makeStyles({
   },
 });
 
-const Browse = ({ book }: BookProps) => {
+const Browse = ({ book, handleAddTolibrary }: BookProps) => {
+  // const handleAddToLibrary = () => {
+  //   console.log("Add to library");
+  // };
+
   const handleFinish = async (theBook: Book) => {
     // console.log("finish", book);
 
@@ -41,7 +45,7 @@ const Browse = ({ book }: BookProps) => {
   const redirect = () => {
     window.location.href = "/library";
   };
-  console.log(book);
+  // console.log(book);
   const classes = useStyles();
   return (
     <Container
@@ -62,15 +66,22 @@ const Browse = ({ book }: BookProps) => {
           </Box>
           <Box className={classes.buttonHead}>
             <Button
-              children='Read Now'
+              children={
+                book && (book.status === false ? "Add to Library" : "Read Now")
+              }
               variant='outlined'
               color='primary'
+              onClick={() => {
+                book && book.status === false && handleAddTolibrary(book);
+              }}
             ></Button>
             <Button
               style={{
                 marginLeft: 50,
               }}
-              children='Finished Reading'
+              children={
+                book && (book.status === true ? "Finished Reading" : "Buy Now")
+              }
               variant='contained'
               color='primary'
               className={classes.buttonStyles}

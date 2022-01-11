@@ -72,7 +72,7 @@ export default function CurrentlyReadingBooks({
         <BookGrid
           bookList={books}
           handleClick={handleClick}
-          handleCard={handleCard}
+          handleCard={handleCard && handleCard}
           visible='none'
         />
       )}
