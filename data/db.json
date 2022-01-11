@@ -10,15 +10,6 @@
       "status": true
     },
     {
-      "id": 2,
-      "title": "Dropshipping",
-      "author": "James Moore",
-      "time": "20",
-      "category": "Entrepreneurship",
-      "image": "https://images.blinkist.com/images/books/60701b716cee070008b8b7a1/1_1/470.jpg",
-      "status": true
-    },
-    {
       "id": 6,
       "title": "Forest Bathing",
       "author": "Qing Li",
@@ -90,6 +81,24 @@
       "time": "19",
       "category": "Politics",
       "image": "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/250.jpg",
+      "status": true
+    },
+    {
+      "title": "Flash Crash",
+      "author": "Liam Vaughan",
+      "category": "Economics",
+      "time": "12",
+      "image": "https://images.blinkist.com/images/books/600187c36cee0700069e4cef/1_1/470.jpg",
+      "status": true,
+      "id": 16
+    },
+    {
+      "id": 2,
+      "title": "Dropshipping",
+      "author": "James Moore",
+      "time": "20",
+      "category": "Entrepreneurship",
+      "image": "https://images.blinkist.com/images/books/60701b716cee070008b8b7a1/1_1/470.jpg",
       "status": true
     }
   ],
@@ -217,7 +226,7 @@
       "category": "Economics",
       "time": "12",
       "image": "https://images.blinkist.com/images/books/600187c36cee0700069e4cef/1_1/470.jpg",
-      "status": false,
+      "status": true,
       "id": 16
     },
     {

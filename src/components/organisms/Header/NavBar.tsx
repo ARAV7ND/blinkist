@@ -1,5 +1,13 @@
 // import { makeStyles } from "@material-ui/styles";
-import { AppBar, Container, Menu, Tab, Tabs, Toolbar } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Container,
+  Menu,
+  Tab,
+  Tabs,
+  Toolbar,
+} from "@mui/material";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
@@ -8,8 +16,8 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
-import ExpandItems, { ExploreMenu } from "../../Molecules/Menu/ExploreMenu";
-import api from "../../configuration/api/BaseUrl";
+import { ExploreMenu } from "../../Molecules/Menu/ExploreMenu";
+
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
@@ -33,16 +41,17 @@ const useStyles = makeStyles({
     color: "black",
     "& .MuiTabs-indicator": {
       display: "none",
-      //backgroundColor: "orange"
     },
   },
   tab: {
     textTransform: "none",
     // fontSize: "2rem",
-    marginLeft: "50px",
+    minHeight: 20,
+    // marginLeft: "50px",
     // fontSize: "50px",
+    textDecoration: "none",
     "&:hover": {
-      textDecoration: "none",
+      color: "#03314B",
       borderBottom: "2px solid #22C870",
     },
   },
@@ -61,7 +70,6 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
 
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  React.useEffect(() => {});
 
   const handleChange = (e: React.SyntheticEvent, value: number) => {
     setValue(value);
@@ -79,21 +87,30 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
   };
 
   return (
-    <div>
+    <>
       <Container style={{ marginLeft: 259, marginRight: 259 }}>
         <AppBar className={classes.root} position='sticky'>
           <Toolbar>
-            <img alt='company logo' src={logo} className={classes.logo} />
+            <Link to='/library'>
+              <Box
+                component='img'
+                src={logo}
+                className={classes.logo}
+                onClick={() => console.log("image tapped")}
+              />
+            </Link>
             <Tabs
+              disableRipple
               value={value}
               onChange={handleChange}
               className={classes.tabContainer}
             >
-              {/* <Tab icon={<SearchIcon />} /> */}
+              <Tab icon={<SearchIcon />} />
               <Tab
+                disableRipple
                 className={classes.tab}
                 label='Explore'
-                icon={flag ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+                icon={flag === false ? <ExpandMoreIcon /> : <ExpandLessIcon />}
                 iconPosition='end'
                 onClick={openMenu}
 
@@ -101,12 +118,20 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
                 // component={Link}
               />
               <Tab
+                disableRipple
                 className={classes.tab}
                 label='My Library'
                 to='/library'
                 component={Link}
               />
-              <Tab label='Account' />
+              <Tab
+                disableRipple
+                className={classes.tab}
+                sx={{ marginLeft: "300px", minHeight: 30 }}
+                label='Account'
+                icon={<ExpandMoreIcon />}
+                iconPosition='end'
+              />
             </Tabs>
           </Toolbar>
         </AppBar>
@@ -134,7 +159,7 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
           handleGetByCategory={handleGetByCategory}
         />
       </Menu>
-    </div>
+    </>
   );
 };
 

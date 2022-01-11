@@ -4,9 +4,6 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Typography,
 } from "@mui/material";
 import * as React from "react";

@@ -6,13 +6,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   root: {
-    // "& .MuiButtonBase-root.MuiTab-root": {
-    //   fontSize: 20,
-    // },
-    // "& .Mui-selected": {
-    //   textDecoration: "underline",
-    // },
-    width: "60%",
+    width: "608px",
   },
 });
 

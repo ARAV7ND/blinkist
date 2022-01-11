@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import "@fontsource/pt-sans";
-
+import "@fontsource/raleway";
 export const theme = createTheme({
   palette: {
     common: {
@@ -8,11 +8,11 @@ export const theme = createTheme({
     },
     primary: {
       main: "#22C870",
-      light: "#2CE080",
-      dark: "#20BA68",
+      // light: "#2CE080",
+      // dark: "#20BA68",
     },
     secondary: {
-      main: "#0365F2",
+      main: "#DFE8F6",
       dark: "#0365F2",
     },
     info: {
@@ -23,8 +23,9 @@ export const theme = createTheme({
   typography: {
     allVariants: {
       color: "#03314B",
+      fontFamily: "raleway",
+      fontWeight: "400",
     },
-    fontFamily: "PT Sans",
 
     h1: {
       fontFamily: "PT Sans",
@@ -61,12 +62,27 @@ export const theme = createTheme({
         // Name of the slot
         root: {
           // Some CSS
-          fontSize: "1rem",
+          fontFamily: "raleway",
+          fontSize: "16px",
           disableRipple: true,
           disableFocusRipple: true,
           disableElevation: true,
+          textDecoration: "none",
         },
 
+        containedPrimary: {
+          disableRipple: true,
+          disableElevation: true,
+          disableFocusRipple: true,
+          textTransform: "none",
+          border: "none",
+          color: "##2CE080",
+          fontFamily: "raleway",
+          fontSize: "16px",
+          "&:hover": {
+            backgroundColor: "#00C263",
+          },
+        },
         outlinedSecondary: {
           border: "none",
           outline: "none",
@@ -98,9 +114,10 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: "3rem",
-          top: "30%",
-          bottom: "30%",
+          // top: "30%",
+          // bottom: "30%",
           // left: "250px",
+          height: "86px",
         },
       },
     },
@@ -109,6 +126,10 @@ export const theme = createTheme({
         root: {
           textTransform: "none",
           disableRipple: true,
+          fontSize: "16px",
+          fontColor: "#03314B",
+          fontWeight: "500",
+          lineHeight: "20.11px",
         },
       },
     },
@@ -124,6 +145,7 @@ export const theme = createTheme({
         root: {
           boxShadow: "0 0 0",
           backgroundColor: "#F7F7F7",
+          fontColor: "#03314B",
         },
       },
     },
