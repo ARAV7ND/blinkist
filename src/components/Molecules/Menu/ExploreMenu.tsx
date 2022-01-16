@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "#0365F2",
       border: 0,
+      backgroundColor: "#F1F6F4",
     },
   },
 }));
@@ -64,28 +65,28 @@ export const ExploreMenu = ({
   ];
 
   const classes = useStyles();
+  const redirect = () => {
+    window.location.href = "/bookRepository/:category";
+  };
   return (
-    <Container
-      onMouseLeave={handleMouseOut}
-      style={{ marginLeft: 259, marginRight: 259 }}
-    >
+    <Container onMouseLeave={handleMouseOut} maxWidth='lg'>
       <Box maxWidth={960} marginLeft={5}>
         <Grid container direction='row' spacing={2}>
           <Grid item md={12} sm={12} xs={12}>
-            <Typography variant='subtitle2'>
-              Explore by category &nbsp;
-              <Divider />
-            </Typography>
+            <br></br>
+            <Typography variant='subtitle2'>Explore by category</Typography>
           </Grid>
-
+          <Grid item md={12}>
+            <Divider />
+          </Grid>
           {category.map(({ label, icon }) => {
             return (
-              <Grid item md={4} sm={6} xs={12}>
+              <Grid item md={4} sm={6} xs={12} key={label}>
                 <Button
                   children={label}
                   size='small'
                   startIcon={icon}
-                  onClick={() => [handleGetByCategory(label), handleMouseOut]}
+                  onClick={() => [handleMouseOut, handleGetByCategory(label)]}
                   component={Link}
                   className={classes.buttonStyle}
                   disableFocusRipple
@@ -96,6 +97,8 @@ export const ExploreMenu = ({
               </Grid>
             );
           })}
+          <br />
+          <br />
         </Grid>
       </Box>
     </Container>

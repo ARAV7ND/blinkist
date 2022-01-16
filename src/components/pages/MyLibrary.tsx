@@ -1,4 +1,5 @@
-import { Box, Container, makeStyles } from "@mui/material";
+import { Typography } from "@material-ui/core";
+import { Box, Container } from "@mui/material";
 import * as React from "react";
 import StatusTab from "../organisms/StatusTab/StatusTab";
 interface Ibook {
@@ -9,6 +10,7 @@ interface Ibook {
   image: string;
   status: boolean;
   time: string;
+  isFinished: boolean;
 }
 interface HomeProps {
   handleCard?: (tempBook: Ibook) => void;
@@ -16,15 +18,20 @@ interface HomeProps {
 
 const HomePage = ({ handleCard }: HomeProps) => {
   return (
-    <Container style={{ margin: 100, marginLeft: 259, marginRight: 259 }}>
+    <Container>
       <Box>
         <div
           style={{
-            margin: 50,
+            margin: "50px 0 40px 0",
             fontSize: 25,
           }}
         >
-          My Library
+          <Typography
+            variant='h4'
+            style={{ fontWeight: 700, marginBottom: "0.5" }}
+          >
+            My Library
+          </Typography>
         </div>
         <StatusTab handleCard={handleCard} />
       </Box>

@@ -21,6 +21,7 @@ const books = [
     image:
       "https://images.blinkist.com/images/books/609155fc6cee070007ccb3ad/1_1/470.jpg",
     status: true,
+    isFinished: false,
   },
   {
     id: 12,
@@ -31,6 +32,7 @@ const books = [
     image:
       "https://images.blinkist.com/images/books/60547aca6cee0700076902e8/1_1/470.jpg",
     status: true,
+    isFinished: false,
   },
   {
     id: 13,
@@ -41,6 +43,7 @@ const books = [
     image:
       "https://images.blinkist.com/images/books/6082d1516cee0700072c7da1/1_1/470.jpg",
     status: true,
+    isFinished: false,
   },
   {
     id: 15,
@@ -51,6 +54,7 @@ const books = [
     image:
       "https://images.blinkist.com/images/books/609901436cee0700077e6675/1_1/470.jpg",
     status: true,
+    isFinished: false,
   },
   {
     id: 3,
@@ -61,6 +65,7 @@ const books = [
     image:
       "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/250.jpg",
     status: false,
+    isFinished: false,
   },
 ];
 bookGrid.args = {

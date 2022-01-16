@@ -22,6 +22,7 @@ const tempBook = {
   time: "12",
   category: "Biography",
   status: true,
+  isFinished: false,
 };
 
 const tempClick = () => {};

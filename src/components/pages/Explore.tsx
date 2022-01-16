@@ -1,7 +1,8 @@
-import { Container, makeStyles } from "@mui/material";
+import { Container } from "@mui/material";
 import * as React from "react";
+import { useState, useEffect } from "react";
+import SearchInput from "../Molecules/Input/SearchInput/SearchInput";
 import ExploreBooks from "../organisms/Explore/ExploreBooks";
-import StatusTab from "../organisms/StatusTab/StatusTab";
 
 interface Book {
   id: number;
@@ -11,6 +12,7 @@ interface Book {
   image: string;
   status: boolean;
   time: string;
+  isFinished: boolean;
 }
 interface BookList {
   bookList: Array<Book>;
@@ -20,7 +22,8 @@ interface BookList {
 }
 const ExplorePage = ({ bookList, handleClick, handleCard }: BookList) => {
   return (
-    <Container style={{ margin: 100, marginLeft: 259, marginRight: 259 }}>
+    <Container>
+      {/* <SearchInput onChange={handleSearch}/> */}
       <ExploreBooks
         bookList={bookList}
         handleClick={handleClick}

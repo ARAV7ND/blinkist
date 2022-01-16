@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { ThemeProvider } from "@material-ui/core";
+import { Container, ThemeProvider } from "@material-ui/core";
 import theme from "./components/configuration/Theme/theme";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/organisms/Header/NavBar";
@@ -8,6 +8,7 @@ import HomePage from "./components/pages/MyLibrary";
 import ExplorePage from "./components/pages/Explore";
 import api from "./components/configuration/api/BaseUrl";
 import Browse from "./components/organisms/Browse/Browse";
+import { CssBaseline } from "@mui/material";
 
 interface Ibook {
   id: number;
@@ -17,6 +18,7 @@ interface Ibook {
   image: string;
   status: boolean;
   time: string;
+  isFinished: boolean;
 }
 // interface statusProps {
 //   handleCard?: (tempBook: Ibook) => void;
@@ -28,9 +30,9 @@ function App() {
 
   const handleClick = async (book: Ibook) => {
     book.status = true;
-    // console.log(book.status);
+    console.log(book.status);
     await api.put(`/bookRepository/${book.id}`, book);
-    await api.post("/books", book);
+    await api.post("/currentlyReading", book);
     handleGetByCategory(book.category);
   };
   const handleGetByCategory = async (category: string) => {
@@ -43,7 +45,7 @@ function App() {
   // var theBook: Ibook;
 
   const handleCard = (book: Ibook) => {
-    console.log("handler:", book);
+    // console.log("handler:", book);
     setBook(book);
   };
 
@@ -51,31 +53,32 @@ function App() {
     <div className='App' style={{ margin: 10 }}>
       <ThemeProvider theme={theme}>
         <Router>
-          <NavBar handleGetByCategory={handleGetByCategory} />
-
-          <Routes>
-            <Route path='/' element={<HomePage handleCard={handleCard} />} />
-            <Route
-              path='/library'
-              element={<HomePage handleCard={handleCard} />}
-            />
-            <Route
-              path='/bookRepository/:category'
-              element={
-                <ExplorePage
-                  bookList={booksByCategory}
-                  handleClick={handleClick}
-                  handleCard={handleCard}
-                />
-              }
-            />
-            <Route
-              path='/browse'
-              element={
-                <Browse book={theBook} handleAddTolibrary={handleClick} />
-              }
-            />
-          </Routes>
+          <Container>
+            <NavBar handleGetByCategory={handleGetByCategory} />
+            <Routes>
+              <Route path='/' element={<HomePage handleCard={handleCard} />} />
+              <Route
+                path='/library'
+                element={<HomePage handleCard={handleCard} />}
+              />
+              <Route
+                path='/bookRepository/:category'
+                element={
+                  <ExplorePage
+                    bookList={booksByCategory}
+                    handleClick={handleClick}
+                    handleCard={handleCard}
+                  />
+                }
+              />
+              <Route
+                path='/browse'
+                element={
+                  <Browse book={theBook} handleAddTolibrary={handleClick} />
+                }
+              />
+            </Routes>
+          </Container>
         </Router>
       </ThemeProvider>
     </div>

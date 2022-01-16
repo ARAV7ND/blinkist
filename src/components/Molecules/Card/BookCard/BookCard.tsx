@@ -4,6 +4,9 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Typography,
 } from "@mui/material";
 import * as React from "react";
@@ -14,16 +17,6 @@ import statusBar from "../../../../assets/statusBar.png";
 import CustomButton from "../../../Atoms/Button/Button";
 import { Link } from "react-router-dom";
 const useStyles = makeStyles({
-  root: {
-    // width: "100%",
-    maxWidth: 284,
-    maxHeight: 466,
-    // margin: 35,
-    // marginRight: 50,
-    // height: 509,
-    border: "none",
-    boxShadow: "none",
-  },
   image: {
     // width: "100%",
     width: "285px",
@@ -39,7 +32,9 @@ const useStyles = makeStyles({
     // justifyContent: "space-evenly",
     textAlign: "left",
     // border: "1px transparent",
-    borderBottom: "1px solid #E1ECFC",
+    borderBottom: "1px solid #BAC8CE",
+    borderLeft: "1px solid #BAC8CE",
+    borderRight: "1px solid #BAC8CE",
   },
 
   icon: {
@@ -48,7 +43,8 @@ const useStyles = makeStyles({
   actions: {
     // margin: 12,
     // justifyContent: "center",
-    padding: 0,
+    padding: 1,
+    border: "1px solid #BAC8CE",
   },
 });
 
@@ -60,6 +56,7 @@ interface Book {
   image: string;
   status: boolean;
   time: string;
+  isFinished: boolean;
 }
 type BookCardProps = {
   book: Book;
@@ -75,11 +72,8 @@ export function BookCard({
   handleClick,
 }: BookCardProps) {
   const styles = useStyles();
-  const flag: string = book.status ? "none" : "inline";
-  const set: string = book.status ? "inline" : "none";
-
   return (
-    <Card className={styles.root}>
+    <Card>
       <Box
         to='/browse'
         component={Link}
@@ -95,32 +89,43 @@ export function BookCard({
 
         <CardContent className={styles.content}>
           <Box>
-            <Typography variant='subtitle2'>{book.title}</Typography>
-            <Typography variant='body1'>{book.author}</Typography>
-            <Typography variant='caption'>
-              <TimeIcon fontSize='small' />
-              &nbsp; {book.time} minutes read
+            <Typography variant='subtitle2' sx={{ fontWeight: 800 }}>
+              {book.title}
             </Typography>
+            <Typography variant='body1' sx={{ fontWeight: 400 }}>
+              {book.author}
+            </Typography>
+            <ListItem style={{ padding: "0px 0px" }}>
+              <ListItemIcon style={{ minWidth: "27px" }}>
+                <TimeIcon fontSize='small' />
+              </ListItemIcon>
+              <ListItemText style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+                {book.time} minutes read
+              </ListItemText>
+            </ListItem>
           </Box>
         </CardContent>
       </Box>
-      <Box display={flag}>
-        <CardActions style={{ padding: 0 }}>
-          <CustomButton
-            label='Add to library'
-            startIcon={<AddIcon />}
-            variant='outlined'
-            color='secondary'
-            size='large'
-            width={true}
-            handleClick={() => handleClick}
-          />
-        </CardActions>
-      </Box>
-
-      <Box display={set}>
-        <CardMedia src={statusBar} component='img' />
-      </Box>
+      {book.status === false && (
+        <Box className={styles.actions}>
+          <CardActions style={{ padding: 2 }}>
+            <CustomButton
+              label='Add to library'
+              startIcon={<AddIcon />}
+              variant='outlined'
+              color='secondary'
+              size='large'
+              width={true}
+              handleClick={handleClick}
+            />
+          </CardActions>
+        </Box>
+      )}
+      {book.status === true && (
+        <Box>
+          <CardMedia src={statusBar} component='img' />
+        </Box>
+      )}
     </Card>
   );
 }

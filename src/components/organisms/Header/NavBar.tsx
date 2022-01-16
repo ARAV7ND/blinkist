@@ -7,8 +7,9 @@ import {
   Tab,
   Tabs,
   Toolbar,
+  Button,
 } from "@mui/material";
-
+import { IconButton } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -17,7 +18,7 @@ import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { ExploreMenu } from "../../Molecules/Menu/ExploreMenu";
-
+import "@fontsource/raleway";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
@@ -25,14 +26,10 @@ const useStyles = makeStyles({
     width: "100%",
     // height: "86px",
   },
-  // content: {
-  //   top: "30%",
-  //   bottom: "30%",
-  //   left: "250px",
-  // },
+
   logo: {
-    height: "26px",
-    width: "124.09px",
+    height: "35px",
+    width: "132.09px",
     color: "black",
     cursor: "pointer",
   },
@@ -41,18 +38,6 @@ const useStyles = makeStyles({
     color: "black",
     "& .MuiTabs-indicator": {
       display: "none",
-    },
-  },
-  tab: {
-    textTransform: "none",
-    // fontSize: "2rem",
-    minHeight: 20,
-    // marginLeft: "50px",
-    // fontSize: "50px",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#03314B",
-      borderBottom: "2px solid #22C870",
     },
   },
 
@@ -68,98 +53,84 @@ type NavBarProps = {
 export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
   const classes = useStyles();
 
-  const [value, setValue] = useState(0);
+  const [icon, setIcon] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const handleChange = (e: React.SyntheticEvent, value: number) => {
-    setValue(value);
-  };
-
-  var flag: boolean = false;
   const handleClose = () => {
-    flag = true;
+    setIcon(true);
     setAnchorEl(null);
   };
 
   const openMenu = (event: React.MouseEvent<HTMLElement>) => {
-    flag = false;
+    setIcon(false);
     setAnchorEl(event.currentTarget);
   };
 
   return (
-    <>
-      <Container style={{ marginLeft: 259, marginRight: 259 }}>
-        <AppBar className={classes.root} position='sticky'>
-          <Toolbar>
-            <Link to='/library'>
-              <Box
-                component='img'
-                src={logo}
-                className={classes.logo}
-                onClick={() => console.log("image tapped")}
-              />
-            </Link>
-            <Tabs
-              disableRipple
-              value={value}
-              onChange={handleChange}
-              className={classes.tabContainer}
-            >
-              <Tab icon={<SearchIcon />} />
-              <Tab
-                disableRipple
-                className={classes.tab}
-                label='Explore'
-                icon={flag === false ? <ExpandMoreIcon /> : <ExpandLessIcon />}
-                iconPosition='end'
-                onClick={openMenu}
+    <Box maxWidth={1050}>
+      <AppBar position='static' elevation={0}>
+        <Toolbar>
+          <Link to='/library'>
+            <Box
+              component='img'
+              src={logo}
+              className={classes.logo}
+              onClick={() => console.log("image tapped")}
+            />
+          </Link>
 
-                // to='/explore'
-                // component={Link}
-              />
-              <Tab
-                disableRipple
-                className={classes.tab}
-                label='My Library'
-                to='/library'
-                component={Link}
-              />
-              <Tab
-                disableRipple
-                className={classes.tab}
-                sx={{ marginLeft: "300px", minHeight: 30 }}
-                label='Account'
-                icon={<ExpandMoreIcon />}
-                iconPosition='end'
-              />
-            </Tabs>
-          </Toolbar>
-        </AppBar>
-      </Container>
-      <Menu
-        marginThreshold={0}
-        style={{ top: "1px", height: "auto" }}
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        onMouseLeave={handleClose}
-        PaperProps={{
-          style: {
-            width: "100%",
-            maxWidth: "100%",
-            left: 0,
-            right: 0,
-            backgroundColor: "#F1F6F4",
-            boxShadow: "0 0 0",
-          },
-        }}
-      >
-        <ExploreMenu
-          handleMouseOut={handleClose}
-          handleGetByCategory={handleGetByCategory}
-        />
-      </Menu>
-    </>
+          <Box sx={{ marginLeft: "25px", fontSize: "30px" }}>
+            <IconButton sx={{ fontSize: "30px" }}>
+              <SearchIcon />
+            </IconButton>
+          </Box>
+
+          <Box sx={{ marginLeft: "25px" }}>
+            <Button
+              children='Explore'
+              onClick={openMenu}
+              endIcon={icon === true ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+            />
+          </Box>
+
+          <Box sx={{ marginLeft: "25px", flexGrow: 1 }}>
+            <Button
+              children='My library'
+              size='large'
+              to='/library'
+              component={Link}
+            />
+          </Box>
+
+          <Box sx={{ flexGrow: 0 }}>
+            <Button children='Account' endIcon={<ExpandMoreIcon />} />
+          </Box>
+        </Toolbar>
+        <Menu
+          marginThreshold={0}
+          style={{ top: "1px", height: "auto" }}
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+          onMouseLeave={handleClose}
+          PaperProps={{
+            style: {
+              width: "100%",
+              maxWidth: "100%",
+              left: 0,
+              right: 0,
+              backgroundColor: "#F1F6F4",
+              boxShadow: "0 0 0",
+            },
+          }}
+        >
+          <ExploreMenu
+            handleMouseOut={handleClose}
+            handleGetByCategory={handleGetByCategory}
+          />
+        </Menu>
+      </AppBar>
+    </Box>
   );
 };
 

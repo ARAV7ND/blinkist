@@ -28,14 +28,14 @@ export const theme = createTheme({
     },
 
     h1: {
-      fontFamily: "PT Sans",
+      fontFamily: "raleway",
       fontSize: "36px",
       lineHeight: "45px",
     },
     subtitle1: {
-      fontFamily: "PT Sans",
+      fontFamily: "raleway",
       fontSize: "24px",
-      lineHeight: "32px",
+      // lineHeight: "32px",
     },
     subtitle2: {
       fontSize: "18px",
@@ -56,24 +56,28 @@ export const theme = createTheme({
   },
 
   components: {
-    // Name of the component
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+
+        disableElevation: true,
+        disableFocusRipple: true,
+      },
+    },
     MuiButton: {
       styleOverrides: {
-        // Name of the slot
-        root: {
-          // Some CSS
-          fontFamily: "raleway",
-          fontSize: "16px",
-          disableRipple: true,
-          disableFocusRipple: true,
-          disableElevation: true,
-          textDecoration: "none",
-        },
+        allVariants: {
+          root: {
+            fontFamily: "raleway",
+            fontSize: "16px",
+            disableRipple: true,
+            disableFocusRipple: true,
+            disableElevation: true,
 
+            textDecoration: "none",
+          },
+        },
         containedPrimary: {
-          disableRipple: true,
-          disableElevation: true,
-          disableFocusRipple: true,
           textTransform: "none",
           border: "none",
           color: "##2CE080",
@@ -83,6 +87,21 @@ export const theme = createTheme({
             backgroundColor: "#00C263",
           },
         },
+
+        text: {
+          fontSize: "16px",
+          fontWeight: "600",
+          fontFamily: "raleway",
+          color: "#03314B",
+          textTransform: "none",
+          borderBottom: "2px solid transparent",
+          borderRadius: 0,
+          "&:hover": {
+            backgroundColor: "inherit",
+            borderBottom: "2px solid #00C263",
+          },
+        },
+
         outlinedSecondary: {
           border: "none",
           outline: "none",
@@ -93,19 +112,19 @@ export const theme = createTheme({
             color: "white",
           },
         },
+
+        outlinedPrimary: {
+          textTransform: "none",
+          borderColor: "#03314B",
+        },
       },
     },
 
     MuiAppBar: {
       styleOverrides: {
         root: {
-          width: "100%",
-          // height: "86px",
-          fontFamily: "PT Sans",
-          fontVariant: "body2",
           backgroundColor: "#FFFFFF",
           color: "#03314B",
-          boxShadow: "0 0 0",
         },
       },
     },
@@ -113,11 +132,12 @@ export const theme = createTheme({
     MuiToolbar: {
       styleOverrides: {
         root: {
-          fontSize: "3rem",
-          // top: "30%",
-          // bottom: "30%",
-          // left: "250px",
-          height: "86px",
+          Width: "100%",
+          root: {
+            backgroundColor: "#FFFFFF",
+            color: "#03314B",
+            textTransform: "none",
+          },
         },
       },
     },
@@ -126,9 +146,9 @@ export const theme = createTheme({
         root: {
           textTransform: "none",
           disableRipple: true,
-          fontSize: "16px",
           fontColor: "#03314B",
-          fontWeight: "500",
+          fontSize: 18,
+          fontWeight: 500,
           lineHeight: "20.11px",
         },
       },
@@ -144,8 +164,11 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: "0 0 0",
-          backgroundColor: "#F7F7F7",
+          // backgroundColor: "#F7F7F7",
           fontColor: "#03314B",
+
+          width: "286px",
+          height: "504px",
         },
       },
     },
@@ -153,6 +176,7 @@ export const theme = createTheme({
       stylesOverrides: {
         root: {
           // height: "calc(100vh-84px)",
+          // width: 944,
           backgroundColor: "#f7f7f7",
         },
       },

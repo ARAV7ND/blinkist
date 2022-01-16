@@ -1,5 +1,4 @@
 import api from "../../configuration/api/BaseUrl";
-import React, { useState, useEffect, useContext } from "react";
 import BookGrid from "../Grid/BookGrid/BookGrid";
 import { Box, Container, Typography } from "@mui/material";
 
@@ -11,6 +10,7 @@ interface Ibook {
   image: string;
   status: boolean;
   time: string;
+  isFinished: boolean;
 }
 interface IBookList {
   bookList: Array<Ibook>;
@@ -22,12 +22,6 @@ export default function ExploreBooks({
   handleClick,
   handleCard,
 }: IBookList) {
-  // const handleClick = async (book: Ibook) => {
-  //   book.status = true;
-  //   console.log(book.status);
-  //   await api.put(`/bookRepository/${book.id}`, book);
-  //   // await api.post("/books", book);
-  // };
   return (
     <Container>
       <Box
