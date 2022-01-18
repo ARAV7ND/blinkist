@@ -85,7 +85,7 @@ const StatusTab = ({ handleCard }: statusProps) => {
           marginBottom={2}
         >
           <TabList value={selectedTab} onChange={handleChange}>
-            <Tab label='Currently reading' className={styles.root} value='0' />
+            <Tab label='Currently reading' className={styles.root} value='0' sx={{}} />
             <Tab label='Finished' className={styles.root} value='1' />
           </TabList>
         </Box>

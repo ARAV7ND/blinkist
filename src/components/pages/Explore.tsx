@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import * as React from "react";
 import { useState, useEffect } from "react";
 import SearchInput from "../Molecules/Input/SearchInput/SearchInput";
@@ -19,11 +19,18 @@ interface BookList {
   handleClick: (book: Book) => void;
 
   handleCard?: (book: Book) => void;
+
+  handleSearch: (searchInput: string) => void;
 }
-const ExplorePage = ({ bookList, handleClick, handleCard }: BookList) => {
+const ExplorePage = ({
+  bookList,
+  handleClick,
+  handleCard,
+  handleSearch,
+}: BookList) => {
   return (
     <Container>
-      {/* <SearchInput onChange={handleSearch}/> */}
+      <SearchInput onChange={handleSearch} />
       <ExploreBooks
         bookList={bookList}
         handleClick={handleClick}

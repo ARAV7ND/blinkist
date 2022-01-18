@@ -16,10 +16,9 @@ import SpaIcon from "@mui/icons-material/Spa";
 import Divider from "@mui/material/Divider";
 import * as React from "react";
 import { Grid, Container, Typography, Button, Box } from "@material-ui/core";
-import theme from "../../configuration/Theme/theme";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
-
+import "@fontsource/raleway";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginLeft: 259,
@@ -28,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
   buttonStyle: {
     textDecoration: "none",
     textTransform: "none",
+    fontSize: "16px",
+    fontFamily: "raleway",
     "&:hover": {
       color: "#0365F2",
       border: 0,
@@ -70,7 +71,7 @@ export const ExploreMenu = ({
   };
   return (
     <Container onMouseLeave={handleMouseOut} maxWidth='lg'>
-      <Box maxWidth={960} marginLeft={5}>
+      <Box maxWidth={960} marginLeft={5} data-testid='explore-menu'>
         <Grid container direction='row' spacing={2}>
           <Grid item md={12} sm={12} xs={12}>
             <br></br>
@@ -81,7 +82,14 @@ export const ExploreMenu = ({
           </Grid>
           {category.map(({ label, icon }) => {
             return (
-              <Grid item md={4} sm={6} xs={12} key={label}>
+              <Grid
+                item
+                md={4}
+                sm={6}
+                xs={12}
+                key={label}
+                data-testid='menu-list'
+              >
                 <Button
                   children={label}
                   size='small'
@@ -92,6 +100,7 @@ export const ExploreMenu = ({
                   disableFocusRipple
                   disableTouchRipple
                   disableRipple
+                  data-testid='menu-item'
                   to='/bookRepository/:category'
                 />
               </Grid>

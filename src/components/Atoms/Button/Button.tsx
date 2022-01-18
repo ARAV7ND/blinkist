@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 type ButtonProps = {
-  variant: "outlined" | "contained";
+  variant: "outlined" | "contained" | "text";
   color: "primary" | "secondary";
   label: string;
   size?: "small" | "medium" | "large";

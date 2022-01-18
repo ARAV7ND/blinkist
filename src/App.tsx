@@ -8,7 +8,6 @@ import HomePage from "./components/pages/MyLibrary";
 import ExplorePage from "./components/pages/Explore";
 import api from "./components/configuration/api/BaseUrl";
 import Browse from "./components/organisms/Browse/Browse";
-import { CssBaseline } from "@mui/material";
 
 interface Ibook {
   id: number;
@@ -49,8 +48,23 @@ function App() {
     setBook(book);
   };
 
+  const handleSearch = (input: string) => {
+    // console.log(input);
+    if (input != null) {
+      const result = booksByCategory.filter((book: Ibook) => {
+        return (
+          book.title.toLowerCase().indexOf(input.toLowerCase()) !== -1 ||
+          book.author.toLowerCase().indexOf(input.toLowerCase()) !== -1
+        );
+      });
+      setBooksByCategory(result);
+    } else {
+      setBooksByCategory(booksByCategory);
+    }
+  };
+
   return (
-    <div className='App' style={{ margin: 10 }}>
+    <div className='App'>
       <ThemeProvider theme={theme}>
         <Router>
           <Container>
@@ -68,6 +82,7 @@ function App() {
                     bookList={booksByCategory}
                     handleClick={handleClick}
                     handleCard={handleCard}
+                    handleSearch={handleSearch}
                   />
                 }
               />

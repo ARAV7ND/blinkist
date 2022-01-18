@@ -1,13 +1,11 @@
 import {
   Box,
   Button,
-  Container,
   Divider,
   Grid,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Stack,
   Tab,
   Typography,
 } from "@mui/material";
@@ -69,7 +67,7 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
   const classes = useStyles();
   return (
     <>
-      <Box sx={{ marginTop: "80px", marginLeft: 5 }}>
+      <Box sx={{ marginTop: "80px", marginLeft: 5 }} data-testid='browse-book'>
         <Grid container flexDirection={"row"}>
           <Grid item md={7}>
             <br />
@@ -98,6 +96,7 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
             <Box className={classes.buttonHead}>
               {book && book.isFinished === false && (
                 <Button
+                  data-testid='read-now'
                   style={{
                     textTransform: "none",
                   }}
@@ -113,6 +112,7 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
                 />
               )}
               <Button
+                data-testid='finish-now'
                 style={{
                   marginLeft: 50,
                 }}

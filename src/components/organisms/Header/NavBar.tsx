@@ -2,15 +2,13 @@
 import {
   AppBar,
   Box,
-  Container,
+
   Menu,
-  Tab,
-  Tabs,
+  
   Toolbar,
   Button,
 } from "@mui/material";
 import { IconButton } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
@@ -90,6 +88,13 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
               children='Explore'
               onClick={openMenu}
               endIcon={icon === true ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+              sx={{
+                borderBottom:
+                  icon === true
+                    ? "2px solid transparent"
+                    : "2px solid #00C263 ",
+                backgroundColor: "inherit",
+              }}
             />
           </Box>
 
@@ -108,7 +113,7 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
         </Toolbar>
         <Menu
           marginThreshold={0}
-          style={{ top: "1px", height: "auto" }}
+          // style={{ top: "1px", height: "auto" }}
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleClose}

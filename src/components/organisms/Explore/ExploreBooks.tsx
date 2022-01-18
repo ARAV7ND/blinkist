@@ -25,14 +25,16 @@ export default function ExploreBooks({
   return (
     <Container>
       <Box
-        style={{
-          marginBottom: 40,
-          // left: 280,
-          // right: 250,
-          textAlign: "left",
-        }}
+      // style={{
+      //   marginBottom: 40,
+      //   // left: 280,
+      //   // right: 250,
+      //   textAlign: "left",
+      // }}
       >
-        <Typography variant='subtitle1'>Trending blinks</Typography>
+        <Typography variant='subtitle1' fontWeight={600}>
+          Trending blinks
+        </Typography>
       </Box>
       <Box>
         {bookList && (

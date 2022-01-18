@@ -6,11 +6,11 @@ import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import SearchIcon from "@mui/icons-material/Search";
 
-interface Props {
+interface SearchInputProps {
   onChange: (searchText: string) => void;
 }
 
-export default function SearchInput(props: Props) {
+export default function SearchInput(props: SearchInputProps) {
   const [searchText, setSearchText] = useState("");
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
@@ -25,9 +25,9 @@ export default function SearchInput(props: Props) {
         variant='standard'
       >
         <Input
-          id='searchInput'
+          data-testid='searchBar'
+          placeholder='Search by title or author'
           value={searchText}
-          placeholder='Search by Title or Author'
           onChange={handleChange}
           startAdornment={
             <InputAdornment position='start'>

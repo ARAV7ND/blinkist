@@ -40,6 +40,7 @@ export const theme = createTheme({
     subtitle2: {
       fontSize: "18px",
       lineHeight: "24px",
+      fontWeight: "700",
     },
     body1: {
       fontSize: "16px",
@@ -60,7 +61,7 @@ export const theme = createTheme({
       defaultProps: {
         disableRipple: true,
 
-        disableElevation: true,
+        // disableElevation: true,
         disableFocusRipple: true,
       },
     },
@@ -106,6 +107,8 @@ export const theme = createTheme({
           border: "none",
           outline: "none",
           textTransform: "none",
+          fontFamily: "raleway",
+          fontSize: "16px",
           color: "#0365F2",
           "&:hover": {
             backgroundColor: "#0365F2",
