@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import CustomButton from "./Button";
-
+import React from "react";
+import "@testing-library/jest-dom";
 const mockHandleClick = jest.fn();
 describe("Custom Button", () => {
   test("checking the role & visibilty", () => {
@@ -16,7 +17,7 @@ describe("Custom Button", () => {
     expect(customButton).toBeTruthy();
     expect(customButton).toBeVisible();
   });
-  
+
   test("checking the label", () => {
     render(
       <CustomButton

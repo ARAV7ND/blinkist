@@ -92,6 +92,7 @@ export const theme = createTheme({
         text: {
           fontSize: "16px",
           fontWeight: "600",
+          minHeight: "8px",
           fontFamily: "raleway",
           color: "#03314B",
           textTransform: "none",

@@ -1,7 +1,10 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import BookCard from "./BookCard";
+import "@testing-library/jest-dom";
 
+import React from "react";
+import BookCard from "./BookCard";
+import "@testing-library/jest-dom";
 const mockHandleClick = jest.fn();
 const tempBook = {
   id: 20,

@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import ExploreMenu from "./ExploreMenu";
-
+import "@testing-library/jest-dom";
 const mockHandleMenu = jest.fn();
 
 const ExploreMenuDropDown = () => {
@@ -16,8 +16,7 @@ const ExploreMenuDropDown = () => {
   );
 };
 describe("checking ExploreMenu", () => {
-  
-    test("checking visibilty", () => {
+  test("checking visibilty", () => {
     render(<ExploreMenuDropDown />);
     const exploreMenu = screen.getByTestId("explore-menu");
     expect(exploreMenu).toBeVisible();
