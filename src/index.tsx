@@ -5,7 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material";
 import theme from "./components/configuration/Theme/theme";
-import NavBar from "./components/organisms/Header/NavBar";
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>

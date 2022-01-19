@@ -26,6 +26,5 @@ describe("Search Bar", () => {
       "Search by title or author"
     );
     fireEvent.change(inputElement, { target: { value: "steve jobs" } });
-    // expect(inputElement.value).toBe("steve jobs");
   });
 });

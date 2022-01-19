@@ -28,5 +28,7 @@ const tempBook = {
 bookCard.args = {
   book: tempBook,
   visible: true,
-  handleClick: () => {},
+  handleClick: () => {
+    console.log("clicked");
+  },
 };
