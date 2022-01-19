@@ -43,27 +43,22 @@ const useStyles = makeStyles({
 });
 
 const Browse = ({ book, handleAddTolibrary }: BookProps) => {
-  // const handleAddToLibrary = () => {
-  //   console.log("Add to library");
-  // };
   const [value, setValue] = useState("1");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
   const handleFinish = async (theBook: Book) => {
-    // console.log("finish", book);
-
     await api.delete(`/currentlyReading/${theBook.id}`);
     theBook.isFinished = true;
-    const response = await api.post("/finished", theBook);
+    await api.post("/finished", theBook);
     redirect();
   };
 
   const redirect = () => {
     window.location.href = "/library";
   };
-  // console.log(book);
+
   const classes = useStyles();
   return (
     <>

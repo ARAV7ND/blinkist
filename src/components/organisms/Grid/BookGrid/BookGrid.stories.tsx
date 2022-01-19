@@ -71,5 +71,7 @@ const books = [
 bookGrid.args = {
   bookList: books,
   visible: "none",
-  handleClick: () => {},
+  handleClick: () => {
+    console.log("clicked");
+  },
 };

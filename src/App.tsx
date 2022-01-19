@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Container, ThemeProvider } from "@material-ui/core";
 import theme from "./components/configuration/Theme/theme";
@@ -19,9 +19,6 @@ interface Ibook {
   time: string;
   isFinished: boolean;
 }
-// interface statusProps {
-//   handleCard?: (tempBook: Ibook) => void;
-// }
 
 function App() {
   const [booksByCategory, setBooksByCategory] = useState([]);
@@ -41,15 +38,12 @@ function App() {
     setBooksByCategory(categoryResult.data);
     console.log(categoryResult.data);
   };
-  // var theBook: Ibook;
 
   const handleCard = (book: Ibook) => {
-    // console.log("handler:", book);
     setBook(book);
   };
 
   const handleSearch = (input: string) => {
-    // console.log(input);
     if (input != null) {
       const result = booksByCategory.filter((book: Ibook) => {
         return (

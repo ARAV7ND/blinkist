@@ -45,10 +45,4 @@ describe("Browse Book", () => {
     fireEvent.click(actionButton);
     expect(mockHandleClick).toHaveBeenCalledTimes(1);
   });
-
-  test("checking book info tab", () => {
-    render(<BrowseBook />);
-    const browseBook = screen.getByTestId("browse-book");
-    expect(browseBook).toBeVisible();
-  });
 });

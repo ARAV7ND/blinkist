@@ -66,9 +66,6 @@ export const ExploreMenu = ({
   ];
 
   const classes = useStyles();
-  const redirect = () => {
-    window.location.href = "/bookRepository/:category";
-  };
   return (
     <Container onMouseLeave={handleMouseOut} maxWidth='lg'>
       <Box maxWidth={960} marginLeft={5} data-testid='explore-menu'>

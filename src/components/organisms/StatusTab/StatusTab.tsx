@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Tab } from "@mui/material";
+import { Tab, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Box } from "@mui/material";
 import { TabPanel, TabList, TabContext } from "@mui/lab";
 import BookGrid from "../Grid/BookGrid/BookGrid";
 import api from "../../configuration/api/BaseUrl";
@@ -22,11 +21,11 @@ interface Ibook {
   time: string;
   isFinished: boolean;
 }
-interface statusProps {
+interface StatusProps {
   handleCard?: (tempBook: Ibook) => void;
 }
 
-const StatusTab = ({ handleCard }: statusProps) => {
+const StatusTab = ({ handleCard }: StatusProps) => {
   const styles = useStyles();
   const [selectedTab, setSelectedTab] = React.useState("0");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -53,7 +52,6 @@ const StatusTab = ({ handleCard }: statusProps) => {
   }, [selectedTab]);
 
   const handleFinish = async (book: Ibook) => {
-    // console.log(book);
     handleRemove(book);
     book.isFinished = true;
     await api.post("/finished", book);
@@ -85,7 +83,12 @@ const StatusTab = ({ handleCard }: statusProps) => {
           marginBottom={2}
         >
           <TabList value={selectedTab} onChange={handleChange}>
-            <Tab label='Currently reading' className={styles.root} value='0' sx={{}} />
+            <Tab
+              label='Currently reading'
+              className={styles.root}
+              value='0'
+              sx={{}}
+            />
             <Tab label='Finished' className={styles.root} value='1' />
           </TabList>
         </Box>

@@ -1,6 +1,5 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import * as React from "react";
-import { useState, useEffect } from "react";
 import SearchInput from "../Molecules/Input/SearchInput/SearchInput";
 import ExploreBooks from "../organisms/Explore/ExploreBooks";
 

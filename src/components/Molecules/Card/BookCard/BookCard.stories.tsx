@@ -25,10 +25,8 @@ const tempBook = {
   isFinished: false,
 };
 
-const tempClick = () => {};
-
 bookCard.args = {
   book: tempBook,
   visible: true,
-  handleClick: tempClick,
+  handleClick: () => {},
 };

@@ -4,7 +4,6 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ThemeProvider } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 
-// import Button from "@mui/material/Button";
 export default {
   title: "atoms/Button",
   component: CustomButton,

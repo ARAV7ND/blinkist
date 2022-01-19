@@ -1,4 +1,3 @@
-import api from "../../configuration/api/BaseUrl";
 import BookGrid from "../Grid/BookGrid/BookGrid";
 import { Box, Container, Typography } from "@mui/material";
 
@@ -46,7 +45,6 @@ export default function ExploreBooks({
           />
         )}
       </Box>
-      {/* <h1>current Books</h1> */}
     </Container>
   );
 }
