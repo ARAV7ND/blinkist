@@ -12,7 +12,7 @@ import {
 import * as React from "react";
 import TimeIcon from "@mui/icons-material/AccessTime";
 import { makeStyles } from "@mui/styles";
-import api from "../../configuration/api/BaseUrl";
+import api from "../../configuration/api/api";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { useState } from "react";
 interface Book {

@@ -4,9 +4,9 @@ import { Container, ThemeProvider } from "@material-ui/core";
 import theme from "./components/configuration/Theme/theme";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/organisms/Header/NavBar";
-import HomePage from "./components/pages/MyLibrary";
-import ExplorePage from "./components/pages/Explore";
-import api from "./components/configuration/api/BaseUrl";
+import HomePage from "./components/pages/HomePage";
+import ExplorePage from "./components/pages/ExplorePage";
+import api from "./components/configuration/api/api";
 import Browse from "./components/organisms/Browse/Browse";
 
 interface Ibook {

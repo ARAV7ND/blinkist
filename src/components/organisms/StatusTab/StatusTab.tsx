@@ -3,7 +3,7 @@ import { Tab, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { TabPanel, TabList, TabContext } from "@mui/lab";
 import BookGrid from "../Grid/BookGrid/BookGrid";
-import api from "../../configuration/api/BaseUrl";
+import api from "../../configuration/api/api";
 import { useState, useEffect } from "react";
 const useStyles = makeStyles((theme) => ({
   root: {
