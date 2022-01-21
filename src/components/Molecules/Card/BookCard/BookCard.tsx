@@ -73,12 +73,13 @@ export function BookCard({
 }: BookCardProps) {
   const styles = useStyles();
   return (
-    <Card>
+    <Card data-testid='book-card'>
       <Box
         to='/browse'
         component={Link}
         style={{ textDecoration: "none" }}
         onClick={() => handleCard && handleCard(book)}
+        data-testid='cardClick'
       >
         <CardMedia
           className={styles.image}
@@ -122,7 +123,7 @@ export function BookCard({
         </Box>
       )}
       {book.status === true && (
-        <Box>
+        <Box data-testid='progress-bar'>
           <CardMedia src={statusBar} component='img' />
         </Box>
       )}

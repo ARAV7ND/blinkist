@@ -15,12 +15,12 @@ interface BookList {
   bookList: Array<Book>;
   handleClick: (book: Book) => void;
   handleCard?: (book: Book) => void;
-  visible: "none" | "inline";
+  visible?: "none" | "inline";
 }
 
 const BookGrid = ({ bookList, visible, handleCard, handleClick }: BookList) => {
   return (
-    <Box style={{ overflow: "auto" }}>
+    <Box style={{ overflow: "auto" }} data-testid='card-grid'>
       <Grid
         container
         rowGap={1}

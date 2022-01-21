@@ -175,8 +175,8 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
                     lineHeight='26px'
                     fontWeight={400}
                   >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illum tempore porro quam voluptatum id eaque! Magnam
+                    Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit.Illum tempore porro quam voluptatum id eaque! Magnam
                     similique fugit voluptas aliquam impedit? Alias saepe
                     consequuntur iure beatae odit doloribus molestias veniam!
                   </Typography>
@@ -190,19 +190,14 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
                 </TabPanel>
                 <TabPanel value='3'>
                   <Typography variant='body1'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eligendi, maiores labore odio accusamus cum enim eum eaque
-                    asperiores, sequi impedit, dolores adipisci! Quod veniam
-                    unde temporibus architecto neque vel ratione?
+                    Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit.Illum tempore porro quam voluptatum id eaque! Magnam
+                    similique fugit voluptas aliquam impedit? Alias saepe
+                    consequuntur iure beatae odit doloribus molestias veniam!
                   </Typography>
                 </TabPanel>
               </TabContext>
             </Box>
-          </Grid>
-          <Grid item md={10}>
-            <br />
-            <br />
-            <Divider />
           </Grid>
         </Grid>
       </Box>

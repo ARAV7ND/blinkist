@@ -34,6 +34,9 @@ describe("Browse Book", () => {
     render(<BrowseBook />);
     const browseBook = screen.getByTestId("browse-book");
     expect(browseBook).toBeVisible();
+    expect(
+      screen.getByText("Turning Your Business into an Enduring Great Company")
+    ).toBeInTheDocument();
     expect(screen.getByText("steve jobs")).toBeInTheDocument();
     expect(screen.getByText("12 minutes read")).toBeInTheDocument();
   });
@@ -42,8 +45,46 @@ describe("Browse Book", () => {
     render(<BrowseBook />);
     const browseBook = screen.getByTestId("browse-book");
     expect(browseBook).toBeVisible();
-    const actionButton = screen.getByTestId("read-now");
-    fireEvent.click(actionButton);
+    const readNowButton = screen.getByTestId("read-now");
+    fireEvent.click(readNowButton);
     expect(mockHandleClick).toHaveBeenCalledTimes(1);
+    const finishNowButton = screen.getByTestId("finish-now");
+    fireEvent.click(finishNowButton);
+    expect(mockHandleClick).toHaveBeenCalledTimes(1);
+  });
+
+  test("checking the tabs label", () => {
+    render(<BrowseBook />);
+    const tabs = screen.getAllByRole("tab");
+    expect(tabs.length).toBe(3);
+    expect(tabs[0].textContent).toBe("Synopsis");
+    expect(tabs[1].textContent).toBe("Who is it for?");
+    expect(tabs[2].textContent).toBe("About the author");
+  });
+
+  test("checking the tab panel", () => {
+    render(<BrowseBook />);
+    const tabs = screen.getAllByRole("tab");
+    expect(tabs.length).toBe(3);
+    expect(tabs[0].textContent).toBe("Synopsis");
+    expect(tabs[1].textContent).toBe("Who is it for?");
+    expect(tabs[2].textContent).toBe("About the author");
+    const tabPanel = screen.getAllByRole("tabpanel");
+    expect(tabPanel.length).toBe(1);
+    fireEvent.click(tabs[0]);
+    const tabPanelOne = screen.getByRole("tabpanel");
+    expect(tabPanelOne.textContent).toContain(
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Illum tempore porro quam voluptatum id eaque! Magnam similique fugit voluptas aliquam impedit? Alias saepe consequuntur iure beatae odit doloribus molestias veniam!"
+    );
+    fireEvent.click(tabs[1]);
+    const tabPanelTwo = screen.getByRole("tabpanel");
+    expect(tabPanelTwo.textContent).toContain(
+      "Illum tempore porro quam voluptatum id eaque! Illum tempore porro quam voluptatum id eaque! Illum tempore porro quam voluptatum id eaque!"
+    );
+    fireEvent.click(tabs[2]);
+    const tabPanelThree = screen.getByRole("tabpanel");
+    expect(tabPanelThree.textContent).toContain(
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Illum tempore porro quam voluptatum id eaque! Magnam similique fugit voluptas aliquam impedit? Alias saepe consequuntur iure beatae odit doloribus molestias veniam!"
+    );
   });
 });

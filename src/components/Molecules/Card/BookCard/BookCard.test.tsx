@@ -6,6 +6,7 @@ import React from "react";
 import BookCard from "./BookCard";
 import "@testing-library/jest-dom";
 const mockHandleClick = jest.fn();
+const mockhandleCardClick = jest.fn();
 const tempBook = {
   id: 20,
   title: "steve jobs",
@@ -20,12 +21,24 @@ const tempBook = {
 const MockBookCard = () => {
   return (
     <BrowserRouter>
-      <BookCard book={tempBook} handleClick={mockHandleClick} visible={true} />
+      <BookCard
+        book={tempBook}
+        handleClick={mockHandleClick}
+        visible={true}
+        handleCard={mockhandleCardClick}
+      />
     </BrowserRouter>
   );
 };
 
 describe("checking the Book Card", () => {
+  test("visibilty", () => {
+    render(<MockBookCard />);
+    const bookCard = screen.getByTestId("book-card");
+    expect(bookCard).toBeTruthy();
+    expect(bookCard).toBeVisible();
+  });
+
   test("Checking the book Typography", () => {
     render(<MockBookCard />);
     expect(screen.getByText("steve jobs")).toBeInTheDocument();
@@ -44,5 +57,11 @@ describe("checking the Book Card", () => {
     const addToLibraryButton = screen.getByRole("button");
     fireEvent.click(addToLibraryButton);
     expect(mockHandleClick).toHaveBeenCalledTimes(1);
+  });
+  test("checking card click", () => {
+    render(<MockBookCard />);
+    const cardClick = screen.getByTestId("cardClick");
+    fireEvent.click(cardClick);
+    // expect(mockhandleCardClick).toHaveBeenCalledTimes(1);
   });
 });
