@@ -70,7 +70,7 @@ const books = [
 ];
 bookGrid.args = {
   bookList: books,
-  visible: "none",
+
   handleClick: () => {
     console.log("clicked");
   },

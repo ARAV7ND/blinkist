@@ -1,7 +1,7 @@
 import { Typography } from "@material-ui/core";
 import { Box, Container } from "@mui/material";
 import * as React from "react";
-import StatusTab from "../organisms/StatusTab/StatusTab";
+import StatusTab from "../../organisms/StatusTab/StatusTab";
 interface Ibook {
   id: number;
   title: string;
@@ -12,13 +12,9 @@ interface Ibook {
   time: string;
   isFinished: boolean;
 }
-interface HomeProps {
-  handleCard?: (tempBook: Ibook) => void;
-}
-
-const HomePage = ({ handleCard }: HomeProps) => {
+const HomePage = () => {
   return (
-    <Container>
+    <Container data-testid='home-page'>
       <Box>
         <div
           style={{
@@ -33,7 +29,7 @@ const HomePage = ({ handleCard }: HomeProps) => {
             My Library
           </Typography>
         </div>
-        <StatusTab handleCard={handleCard} />
+        <StatusTab />
       </Box>
     </Container>
   );

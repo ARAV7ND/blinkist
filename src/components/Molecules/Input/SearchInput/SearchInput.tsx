@@ -18,7 +18,7 @@ export default function SearchInput(props: SearchInputProps) {
   };
 
   return (
-    <Box sx={{ m: 1 }}>
+    <Box sx={{ m: 1 }} data-testid='search-input'>
       <FormControl
         fullWidth
         sx={{ m: 1, minWidth: "400px", maxWidth: "658px" }}

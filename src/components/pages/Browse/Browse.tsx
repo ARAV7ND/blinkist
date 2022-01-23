@@ -11,9 +11,10 @@ import {
 import * as React from "react";
 import TimeIcon from "@mui/icons-material/AccessTime";
 import { makeStyles } from "@mui/styles";
-import api from "../../configuration/api/api";
+import api from "../../../configuration/api/api";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 interface Book {
   id: number;
   title: string;
@@ -24,10 +25,6 @@ interface Book {
   time: string;
   isFinished: boolean;
 }
-type BookProps = {
-  book?: Book;
-  handleAddTolibrary: (book: Book) => void;
-};
 
 const useStyles = makeStyles({
   buttonHead: {
@@ -41,23 +38,46 @@ const useStyles = makeStyles({
   },
 });
 
-const Browse = ({ book, handleAddTolibrary }: BookProps) => {
+const Browse = () => {
+  const selectedBookId = useParams().id;
   const [value, setValue] = useState("1");
+  const [book, setBook] = useState<Book>();
+
+  useEffect(() => {
+    const retriveBook = async () => {
+      let book = await api.get(`/bookRepository/${selectedBookId}`);
+
+      setBook(book.data);
+    };
+    retriveBook();
+  });
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
-  const handleFinish = async (theBook: Book) => {
-    await api.delete(`/currentlyReading/${theBook.id}`);
-    theBook.isFinished = true;
-    await api.post("/finished", theBook);
+  const handleFinish = async (book: Book) => {
+    book.isFinished = true;
+    await api.put(`/bookRepository/${book.id}`, book);
     redirect();
+  };
+
+  const handleAddTolibrary = (book: Book) => {
+    book.status = true;
+    const addTolibrary = async () => {
+      await api.put(`/bookRepository/${book.id}`, book);
+    };
+    addTolibrary();
   };
 
   const redirect = () => {
     window.location.href = "/library";
   };
-
+  let buttonLabel: string =
+    book && book.status === false
+      ? "Add to Library"
+      : book && book.isFinished === true
+      ? "Read Again"
+      : "Read Now";
   const classes = useStyles();
   return (
     <>
@@ -88,16 +108,13 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
               </ListItem>
             </Box>
             <Box className={classes.buttonHead}>
-              {book && book.isFinished === false && (
+              {book && (
                 <Button
                   data-testid='read-now'
                   style={{
                     textTransform: "none",
                   }}
-                  children={
-                    book &&
-                    (book.status === false ? "Add to Library" : "Read Now")
-                  }
+                  children={`${buttonLabel}`}
                   variant='outlined'
                   color='primary'
                   onClick={() => {
@@ -105,22 +122,19 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
                   }}
                 />
               )}
-              <Button
-                data-testid='finish-now'
-                style={{
-                  marginLeft: 50,
-                }}
-                children={
-                  book &&
-                  (book.isFinished === true
-                    ? "Finished Reading"
-                    : "Finish reading")
-                }
-                variant='contained'
-                color='primary'
-                className={classes.buttonStyles}
-                onClick={() => book && handleFinish(book)}
-              />
+              {book && book.status === true && book.isFinished === false && (
+                <Button
+                  data-testid='finish-now'
+                  style={{
+                    marginLeft: 50,
+                  }}
+                  children={"Finish reading"}
+                  variant='contained'
+                  color='primary'
+                  className={classes.buttonStyles}
+                  onClick={() => book && handleFinish(book)}
+                />
+              )}
             </Box>
           </Grid>
           <Grid item md={4}>
@@ -200,6 +214,7 @@ const Browse = ({ book, handleAddTolibrary }: BookProps) => {
           </Grid>
         </Grid>
       </Box>
+      {/* <h1>BROWSE PAGE</h1> */}
     </>
   );
 };

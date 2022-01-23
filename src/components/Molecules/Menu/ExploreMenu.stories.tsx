@@ -16,7 +16,3 @@ export const ExpandList = Template.bind({});
 const handle = (category: string) => {
   console.log("called");
 };
-
-ExpandList.args = {
-  handleGetByCategory: handle,
-};

@@ -1,17 +1,5 @@
 {
-  "currentlyReading": [
-    {
-      "title": "Fear",
-      "author": "Bob Woodward",
-      "category": "Politics",
-      "time": "15",
-      "image": "https://images.blinkist.com/images/books/609901436cee0700077e6675/1_1/470.jpg",
-      "status": true,
-      "id": 15,
-      "isFinished": false
-    }
-  ],
-  "finished": [
+  "bookRepository": [
     {
       "id": 1,
       "title": "Steve Jobs",
@@ -19,8 +7,8 @@
       "time": "20",
       "category": "Entrepreneurship",
       "image": "https://images.blinkist.com/images/books/608a9c296cee070007228a21/1_1/470.jpg",
-      "status": true,
-      "isFinished": true
+      "status": false,
+      "isFinished": false
     },
     {
       "id": 2,
@@ -29,18 +17,8 @@
       "time": "20",
       "category": "Entrepreneurship",
       "image": "https://images.blinkist.com/images/books/60701b716cee070008b8b7a1/1_1/470.jpg",
-      "status": true,
-      "isFinished": true
-    },
-    {
-      "title": "title",
-      "author": "author",
-      "category": "Politics",
-      "time": "20",
-      "status": true,
-      "isFinished": true,
-      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg",
-      "id": 20
+      "status": false,
+      "isFinished": false
     },
     {
       "id": 6,
@@ -51,9 +29,7 @@
       "image": "https://images.blinkist.com/images/books/60950a3c6cee070007151f86/1_1/470.jpg",
       "status": true,
       "isFinished": true
-    }
-  ],
-  "bookRepository": [
+    },
     {
       "id": 13,
       "title": "The Motivation Myth",
@@ -105,16 +81,6 @@
       "isFinished": false
     },
     {
-      "title": "title",
-      "author": "author",
-      "category": "Politics",
-      "time": "20",
-      "status": true,
-      "isFinished": false,
-      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg",
-      "id": 20
-    },
-    {
       "id": 10,
       "title": "Grasp",
       "author": "Sanjay Sarma",
@@ -141,8 +107,8 @@
       "time": "12",
       "category": "Science",
       "image": "https://images.blinkist.com/images/books/608bcaf36cee07000722912e/1_1/470.jpg",
-      "status": false,
-      "isFinished": false
+      "status": true,
+      "isFinished": true
     },
     {
       "title": "My first Book",
@@ -162,7 +128,7 @@
       "image": "https://images.blinkist.com/images/books/609901436cee0700077e6675/1_1/470.jpg",
       "status": true,
       "id": 15,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 25,
@@ -172,17 +138,7 @@
       "category": "Entrepreneurship",
       "image": "https://images.blinkist.io/images/books/608bc8bb6cee070008a8f57e/1_1/470.jpg",
       "status": true,
-      "isFinished": false
-    },
-    {
-      "id": 1,
-      "title": "Steve Jobs",
-      "author": "Walter Isaacson",
-      "time": "20",
-      "category": "Entrepreneurship",
-      "image": "https://images.blinkist.com/images/books/608a9c296cee070007228a21/1_1/470.jpg",
-      "status": true,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 5,
@@ -201,7 +157,7 @@
       "time": "19",
       "category": "Politics",
       "image": "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/250.jpg",
-      "status": false,
+      "status": true,
       "isFinished": false
     },
     {
@@ -211,16 +167,6 @@
       "category": "Economics",
       "time": "12",
       "image": "https://images.blinkist.com/images/books/600187c36cee0700069e4cef/1_1/470.jpg",
-      "status": false,
-      "isFinished": false
-    },
-    {
-      "id": 2,
-      "title": "Dropshipping",
-      "author": "James Moore",
-      "time": "20",
-      "category": "Entrepreneurship",
-      "image": "https://images.blinkist.com/images/books/60701b716cee070008b8b7a1/1_1/470.jpg",
       "status": true,
       "isFinished": false
     },
@@ -232,36 +178,6 @@
       "category": "Education",
       "image": "https://images.blinkist.com/images/books/609155fc6cee070007ccb3ad/1_1/470.jpg",
       "status": false,
-      "isFinished": false
-    },
-    {
-      "id": 6,
-      "title": "Forest Bathing",
-      "author": "Qing Li",
-      "time": "12",
-      "category": "Health",
-      "image": "https://images.blinkist.com/images/books/60950a3c6cee070007151f86/1_1/470.jpg",
-      "status": true,
-      "isFinished": false
-    },
-    {
-      "id": 21,
-      "title": "title",
-      "author": "author",
-      "category": "Politics",
-      "time": "20",
-      "status": false,
-      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg",
-      "isFinished": false
-    },
-    {
-      "id": 19,
-      "title": "title",
-      "author": "author",
-      "category": "Politics",
-      "time": "20",
-      "status": false,
-      "image": "https://images.blinkist.com/images/books/5aa7bb21b238e10007af44aa/1_1/470.jpg",
       "isFinished": false
     }
   ]

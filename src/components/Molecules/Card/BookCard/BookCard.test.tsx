@@ -21,12 +21,7 @@ const tempBook = {
 const MockBookCard = () => {
   return (
     <BrowserRouter>
-      <BookCard
-        book={tempBook}
-        handleClick={mockHandleClick}
-        visible={true}
-        handleCard={mockhandleCardClick}
-      />
+      <BookCard book={tempBook} handleClick={mockHandleClick} />
     </BrowserRouter>
   );
 };

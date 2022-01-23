@@ -61,24 +61,16 @@ interface Book {
 type BookCardProps = {
   book: Book;
   handleClick: () => void;
-  handleCard?: (tempBook: Book) => void;
-  visible: boolean;
 };
 
-export function BookCard({
-  book,
-  visible,
-  handleCard,
-  handleClick,
-}: BookCardProps) {
+export function BookCard({ book, handleClick }: BookCardProps) {
   const styles = useStyles();
   return (
     <Card data-testid='book-card'>
       <Box
-        to='/browse'
+        to={`/browse/${book.id}`}
         component={Link}
         style={{ textDecoration: "none" }}
-        onClick={() => handleCard && handleCard(book)}
         data-testid='cardClick'
       >
         <CardMedia
@@ -118,6 +110,7 @@ export function BookCard({
               size='large'
               width={true}
               handleClick={handleClick}
+              data-testid='library-btn'
             />
           </CardActions>
         </Box>

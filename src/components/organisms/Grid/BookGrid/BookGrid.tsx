@@ -13,12 +13,10 @@ interface Book {
 }
 interface BookList {
   bookList: Array<Book>;
-  handleClick: (book: Book) => void;
-  handleCard?: (book: Book) => void;
-  visible?: "none" | "inline";
+  handleClick?: (book: Book) => void;
 }
 
-const BookGrid = ({ bookList, visible, handleCard, handleClick }: BookList) => {
+const BookGrid = ({ bookList, handleClick }: BookList) => {
   return (
     <Box style={{ overflow: "auto" }} data-testid='card-grid'>
       <Grid
@@ -35,10 +33,8 @@ const BookGrid = ({ bookList, visible, handleCard, handleClick }: BookList) => {
             <BookCard
               book={book}
               handleClick={() => {
-                handleClick(book);
+                handleClick && handleClick(book);
               }}
-              handleCard={handleCard}
-              visible={book.status}
             />
           </Grid>
         ))}

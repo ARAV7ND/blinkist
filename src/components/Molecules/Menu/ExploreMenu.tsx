@@ -38,14 +38,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type ExploreMenuProps = {
-  handleGetByCategory: (category: string) => void;
   handleMouseOut: () => void;
 };
 
-export const ExploreMenu = ({
-  handleGetByCategory,
-  handleMouseOut,
-}: ExploreMenuProps) => {
+export const ExploreMenu = ({ handleMouseOut }: ExploreMenuProps) => {
   const category = [
     { label: "Entrepreneurship", icon: <RocketIcon /> },
     { label: "Health", icon: <FitnessCenterIcon /> },
@@ -91,14 +87,13 @@ export const ExploreMenu = ({
                   children={label}
                   size='small'
                   startIcon={icon}
-                  onClick={() => [handleMouseOut, handleGetByCategory(label)]}
+                  onClick={() => handleMouseOut}
                   component={Link}
                   className={classes.buttonStyle}
-                  disableFocusRipple
                   disableTouchRipple
                   disableRipple
                   data-testid='menu-item'
-                  to='/bookRepository/:category'
+                  to={`/explore/${label}`}
                 />
               </Grid>
             );

@@ -3,7 +3,7 @@ import { Tab, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { TabPanel, TabList, TabContext } from "@mui/lab";
 import BookGrid from "../Grid/BookGrid/BookGrid";
-import api from "../../configuration/api/api";
+import api from "../../../configuration/api/api";
 import { useState, useEffect } from "react";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,11 +21,8 @@ interface Ibook {
   time: string;
   isFinished: boolean;
 }
-interface StatusProps {
-  handleCard?: (tempBook: Ibook) => void;
-}
 
-const StatusTab = ({ handleCard }: StatusProps) => {
+const StatusTab = () => {
   const styles = useStyles();
   const [selectedTab, setSelectedTab] = React.useState("0");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -42,37 +39,16 @@ const StatusTab = ({ handleCard }: StatusProps) => {
     let bookList: never[] = [];
     const getBooks = async () => {
       if (selectedTab === "0") {
-        bookList = await retriveBooks("/currentlyReading");
+        bookList = await retriveBooks(
+          "/bookRepository/?status=true&isFinished=false"
+        );
       } else {
-        bookList = await retriveBooks("/finished");
+        bookList = await retriveBooks("/bookRepository/?isFinished=true");
       }
       setBooks(bookList);
     };
     getBooks();
   }, [selectedTab]);
-
-  const handleFinish = async (book: Ibook) => {
-    handleRemove(book);
-    book.isFinished = true;
-    await api.post("/finished", book);
-    const allBooks = await retriveBooks("/currentlyReading");
-    if (allBooks) {
-      setBooks(allBooks);
-    }
-  };
-
-  const handleRemove = async (book: Ibook) => {
-    await api.delete(`/currentlyReading/${book.id}`);
-    const newBookList = books.filter((tempBook: Ibook) => {
-      return book.id !== tempBook.id;
-    });
-    setBooks(newBookList);
-    console.log("length : ", newBookList.length);
-  };
-
-  const handleClick = (book: Ibook) => {
-    handleFinish(book);
-  };
 
   return (
     <>
@@ -83,32 +59,17 @@ const StatusTab = ({ handleCard }: StatusProps) => {
           marginBottom={2}
         >
           <TabList value={selectedTab} onChange={handleChange}>
-            <Tab
-              label='Currently reading'
-              className={styles.root}
-              value='0'
-              sx={{}}
-            />
+            <Tab label='Currently reading' className={styles.root} value='0' />
             <Tab label='Finished' className={styles.root} value='1' />
           </TabList>
         </Box>
 
         <Box>
-          <TabPanel value='0'>
-            <BookGrid
-              bookList={books}
-              handleClick={handleClick}
-              handleCard={handleCard && handleCard}
-              visible='none'
-            />
+          <TabPanel value='0' id='currently-reading'>
+            <BookGrid bookList={books} />
           </TabPanel>
-          <TabPanel value='1'>
-            <BookGrid
-              bookList={books}
-              handleClick={handleClick}
-              handleCard={handleCard && handleCard}
-              visible='none'
-            ></BookGrid>
+          <TabPanel value='1' id='finish'>
+            <BookGrid bookList={books}></BookGrid>
           </TabPanel>
         </Box>
       </TabContext>

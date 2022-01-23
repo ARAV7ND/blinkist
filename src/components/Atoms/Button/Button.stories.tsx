@@ -1,5 +1,5 @@
 import CustomButton from "./Button";
-import theme from "../../configuration/Theme/theme";
+import theme from "../../../configuration/Theme/theme";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ThemeProvider } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";

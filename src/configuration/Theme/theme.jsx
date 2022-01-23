@@ -62,7 +62,6 @@ export const theme = createTheme({
         disableRipple: true,
 
         // disableElevation: true,
-        disableFocusRipple: true,
       },
     },
     MuiButton: {
@@ -72,7 +71,6 @@ export const theme = createTheme({
             fontFamily: "raleway",
             fontSize: "16px",
             disableRipple: true,
-            disableFocusRipple: true,
             disableElevation: true,
 
             textDecoration: "none",

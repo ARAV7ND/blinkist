@@ -8,10 +8,7 @@ const mockHandleMenu = jest.fn();
 const ExploreMenuDropDown = () => {
   return (
     <BrowserRouter>
-      <ExploreMenu
-        handleGetByCategory={mockHandleMenu}
-        handleMouseOut={mockHandleMenu}
-      />
+      <ExploreMenu handleMouseOut={mockHandleMenu} />
     </BrowserRouter>
   );
 };
@@ -22,23 +19,12 @@ describe("checking ExploreMenu", () => {
     expect(exploreMenu).toBeVisible();
   });
 
-  test("checking events on menu item", () => {
-    render(<ExploreMenuDropDown />);
-    const exploreMenu = screen.getByTestId("explore-menu");
-    expect(exploreMenu).toBeVisible();
-    const menuItem = screen.getAllByRole("button");
-    expect(menuItem.length).toBe(16);
-    const entrepreneurshipCategory = screen.getByText("Entrepreneurship");
-    fireEvent.click(entrepreneurshipCategory);
-    expect(mockHandleMenu).toHaveBeenCalledTimes(1);
-  });
-
   test("checking routing on menu item", () => {
     render(<ExploreMenuDropDown />);
     const exploreMenu = screen.getByTestId("explore-menu");
     expect(exploreMenu).toBeVisible();
     const entrepreneurshipCategory = screen.getByText("Entrepreneurship");
     fireEvent.click(entrepreneurshipCategory);
-    expect(window.location.pathname).toBe("/bookRepository/:category");
+    expect(window.location.pathname).toBe("/explore/Entrepreneurship");
   });
 });

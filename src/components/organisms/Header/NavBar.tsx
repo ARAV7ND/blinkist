@@ -6,7 +6,7 @@ import logo from "../../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { ExploreMenu } from "../../Molecules/Menu/ExploreMenu";
-import "@fontsource/raleway";
+
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
@@ -34,11 +34,7 @@ const useStyles = makeStyles({
   },
 });
 
-type NavBarProps = {
-  handleGetByCategory: (category: string) => void;
-};
-
-export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
+export const NavBar = () => {
   const classes = useStyles();
 
   const [icon, setIcon] = useState(false);
@@ -56,19 +52,14 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
 
   return (
     <Box maxWidth={1050}>
-      <AppBar position='static' elevation={0}>
+      <AppBar position='static' elevation={0} data-testid='nav-bar'>
         <Toolbar>
-          <Link to='/library'>
-            <Box
-              component='img'
-              src={logo}
-              className={classes.logo}
-              onClick={() => console.log("image tapped")}
-            />
+          <Link to='/library' data-testid='brand-logo'>
+            <Box component='img' src={logo} className={classes.logo} />
           </Link>
 
           <Box sx={{ marginLeft: "25px", fontSize: "30px" }}>
-            <IconButton sx={{ fontSize: "30px" }}>
+            <IconButton sx={{ fontSize: "30px" }} data-testid='search-icon'>
               <SearchIcon />
             </IconButton>
           </Box>
@@ -85,15 +76,17 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
                     : "2px solid #00C263 ",
                 backgroundColor: "inherit",
               }}
+              data-testid='explore-btn'
             />
           </Box>
 
           <Box sx={{ marginLeft: "25px", flexGrow: 1 }}>
             <Button
-              children='My library'
+              children='My Library'
               size='large'
               to='/library'
               component={Link}
+              data-testid='myLibrary-btn'
             />
           </Box>
 
@@ -119,10 +112,7 @@ export const NavBar = ({ handleGetByCategory }: NavBarProps) => {
             },
           }}
         >
-          <ExploreMenu
-            handleMouseOut={handleClose}
-            handleGetByCategory={handleGetByCategory}
-          />
+          <ExploreMenu handleMouseOut={handleClose} />
         </Menu>
       </AppBar>
     </Box>

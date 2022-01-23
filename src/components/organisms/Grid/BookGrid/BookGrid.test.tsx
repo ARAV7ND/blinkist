@@ -54,7 +54,7 @@ interface BookCardProps {
   bookList: Array<Book>;
   handleClick: (book: Book) => void;
 }
-const handleCardClick = (book: Book) => {
+const handleAddTolibrary = (book: Book) => {
   console.log(book);
 };
 const MockBookGrid = ({ bookList, handleClick }: BookCardProps) => {
@@ -67,29 +67,29 @@ const MockBookGrid = ({ bookList, handleClick }: BookCardProps) => {
 
 describe("checking the card Grid", () => {
   test("checking grid visibility", () => {
-    render(<MockBookGrid bookList={books} handleClick={handleCardClick} />);
+    render(<MockBookGrid bookList={books} handleClick={handleAddTolibrary} />);
     const bookCard = screen.getByTestId("card-grid");
     expect(bookCard).toBeInTheDocument();
   });
 
   test("checking multiple books are rendered or not", () => {
-    render(<MockBookGrid bookList={books} handleClick={handleCardClick} />);
+    render(<MockBookGrid bookList={books} handleClick={handleAddTolibrary} />);
     const bookCards = screen.getAllByTestId(/book-card/i);
     expect(bookCards).toBeTruthy();
     expect(bookCards.length).toBe(3);
   });
   test("checking buttons", () => {
-    render(<MockBookGrid bookList={books} handleClick={handleCardClick} />);
+    render(<MockBookGrid bookList={books} handleClick={handleAddTolibrary} />);
     const addToLibraryButton = screen.getAllByRole("button");
     expect(addToLibraryButton.length).toBe(1);
   });
   test("checking events", () => {
-    render(<MockBookGrid bookList={books} handleClick={handleCardClick} />);
+    render(<MockBookGrid bookList={books} handleClick={handleAddTolibrary} />);
     const addToLibraryButton = screen.getAllByRole("button");
     fireEvent.click(addToLibraryButton[0]);
   });
   test("checking progress bars", () => {
-    render(<MockBookGrid bookList={books} handleClick={handleCardClick} />);
+    render(<MockBookGrid bookList={books} handleClick={handleAddTolibrary} />);
     const progressBars = screen.getAllByTestId(/progress-bar/i);
     expect(progressBars.length).toBe(2);
   });

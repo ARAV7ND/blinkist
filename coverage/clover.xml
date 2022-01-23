@@ -1,86 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642737769626" clover="3.2.0">
-  <project timestamp="1642737769627" name="All files">
-    <metrics statements="39" coveredstatements="35" conditionals="30" coveredconditionals="28" methods="18" coveredmethods="17" elements="87" coveredelements="80" complexity="0" loc="39" ncloc="39" packages="7" files="7" classes="7"/>
-    <package name="Atoms.Button">
+<coverage generated="1642958469033" clover="3.2.0">
+  <project timestamp="1642958469033" name="All files">
+    <metrics statements="118" coveredstatements="93" conditionals="43" coveredconditionals="22" methods="43" coveredmethods="33" elements="204" coveredelements="148" complexity="0" loc="118" ncloc="118" packages="11" files="11" classes="11"/>
+    <package name="components.Atoms.Button">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Button.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/Atoms/Button/Button.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="14" count="3" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
         <line num="24" count="13" type="stmt"/>
       </file>
     </package>
-    <package name="Molecules.Card.BookCard">
-      <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+    <package name="components.Molecules.Card.BookCard">
+      <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="BookCard.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/Molecules/Card/BookCard/BookCard.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="74" count="20" type="stmt"/>
-        <line num="75" count="20" type="stmt"/>
-        <line num="81" count="1" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="67" count="20" type="stmt"/>
+        <line num="68" count="20" type="stmt"/>
       </file>
     </package>
-    <package name="Molecules.Input.SearchInput">
+    <package name="components.Molecules.Input.SearchInput">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="SearchInput.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/Molecules/Input/SearchInput/SearchInput.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
       </file>
     </package>
-    <package name="Molecules.Menu">
+    <package name="components.Molecules.Menu">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="ExploreMenu.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/Molecules/Menu/ExploreMenu.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="22" count="3" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="49" count="3" type="stmt"/>
-        <line num="68" count="3" type="stmt"/>
-        <line num="69" count="3" type="stmt"/>
-        <line num="81" count="48" type="stmt"/>
-        <line num="94" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="77" count="48" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.organisms.Grid.BookGrid">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="BookGrid.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/organisms/Grid/BookGrid/BookGrid.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="18" type="stmt"/>
+        <line num="32" count="15" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="components.organisms.Header">
+      <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="2"/>
+      <file name="NavBar.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/organisms/Header/NavBar.tsx">
+        <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="2"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="6" type="stmt"/>
+        <line num="40" count="6" type="stmt"/>
+        <line num="41" count="6" type="stmt"/>
+        <line num="43" count="6" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="48" count="6" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="53" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.organisms.StatusTab">
+      <metrics statements="19" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+      <file name="StatusTab.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/organisms/StatusTab/StatusTab.tsx">
+        <metrics statements="19" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="9" type="stmt"/>
+        <line num="27" count="9" type="stmt"/>
+        <line num="28" count="9" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="31" count="9" type="stmt"/>
+        <line num="33" count="9" type="stmt"/>
+        <line num="34" count="9" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="9" type="stmt"/>
+        <line num="39" count="9" type="stmt"/>
+        <line num="40" count="9" type="stmt"/>
+        <line num="41" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="7" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="9" type="stmt"/>
+        <line num="53" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.pages.Browse">
+      <metrics statements="28" coveredstatements="17" conditionals="27" coveredconditionals="10" methods="10" coveredmethods="4"/>
+      <file name="Browse.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/pages/Browse/Browse.tsx">
+        <metrics statements="28" coveredstatements="17" conditionals="27" coveredconditionals="10" methods="10" coveredmethods="4"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="6" type="stmt"/>
+        <line num="43" count="6" type="stmt"/>
+        <line num="44" count="6" type="stmt"/>
+        <line num="46" count="6" type="stmt"/>
+        <line num="47" count="6" type="stmt"/>
+        <line num="48" count="6" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="58" count="6" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="64" count="6" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="72" count="6" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="76" count="6" type="cond" truecount="2" falsecount="2"/>
+        <line num="81" count="6" type="stmt"/>
+        <line num="82" count="6" type="stmt"/>
+        <line num="121" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="135" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+    </package>
+    <package name="components.pages.Explore">
+      <metrics statements="35" coveredstatements="25" conditionals="4" coveredconditionals="2" methods="12" coveredmethods="9"/>
+      <file name="ExplorePage.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/pages/Explore/ExplorePage.tsx">
+        <metrics statements="35" coveredstatements="25" conditionals="4" coveredconditionals="2" methods="12" coveredmethods="9"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="54" count="4" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="63" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.pages.Home">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="HomePage.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/pages/Home/HomePage.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
       </file>
     </package>
     <package name="configuration.api">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="api.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/configuration/api/api.tsx">
+      <file name="api.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/configuration/api/api.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="organisms.Browse">
-      <metrics statements="16" coveredstatements="12" conditionals="24" coveredconditionals="22" methods="6" coveredmethods="5"/>
-      <file name="Browse.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/organisms/Browse/Browse.tsx">
-        <metrics statements="16" coveredstatements="12" conditionals="24" coveredconditionals="22" methods="6" coveredmethods="5"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="7" type="stmt"/>
-        <line num="47" count="7" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="51" count="7" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="58" count="7" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="62" count="7" type="stmt"/>
-        <line num="63" count="7" type="stmt"/>
-        <line num="105" count="1" type="cond" truecount="3" falsecount="0"/>
-        <line num="123" count="1" type="cond" truecount="2" falsecount="0"/>
-      </file>
-    </package>
-    <package name="organisms.Grid.BookGrid">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="BookGrid.tsx" path="/home/arvinc/zemoso-training/react/typescript/blinkist/src/components/organisms/Grid/BookGrid/BookGrid.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="34" count="15" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
       </file>
     </package>
   </project>
