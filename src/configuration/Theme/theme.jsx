@@ -1,6 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import "@fontsource/pt-sans";
-import "@fontsource/raleway";
+
 export const theme = createTheme({
   palette: {
     common: {

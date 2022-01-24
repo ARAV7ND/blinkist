@@ -39,14 +39,15 @@ const useStyles = makeStyles({
 });
 
 const Browse = () => {
-  const selectedBookId = useParams().id;
+  // let selectedBookId = useParams().id;
+  // selectedBookId = selectedBookId === undefined ? "2" : selectedBookId;
+  // const selectedBookId: number = 25;
   const [value, setValue] = useState("1");
   const [book, setBook] = useState<Book>();
-
   useEffect(() => {
     const retriveBook = async () => {
-      let book = await api.get(`/bookRepository/${selectedBookId}`);
-
+      // let book = await api.get(`/bookRepository/${selectedBookId}`);
+      let book = await api.get("/bookRepository/25");
       setBook(book.data);
     };
     retriveBook();
@@ -79,6 +80,7 @@ const Browse = () => {
       ? "Read Again"
       : "Read Now";
   const classes = useStyles();
+  // console.log(book);
   return (
     <>
       <Box sx={{ marginTop: "80px", marginLeft: 5 }} data-testid='browse-book'>
@@ -108,20 +110,19 @@ const Browse = () => {
               </ListItem>
             </Box>
             <Box className={classes.buttonHead}>
-              {book && (
-                <Button
-                  data-testid='read-now'
-                  style={{
-                    textTransform: "none",
-                  }}
-                  children={`${buttonLabel}`}
-                  variant='outlined'
-                  color='primary'
-                  onClick={() => {
-                    book && book.status === false && handleAddTolibrary(book);
-                  }}
-                />
-              )}
+              <Button
+                data-testid='read-now'
+                style={{
+                  textTransform: "none",
+                }}
+                children={`${buttonLabel}`}
+                variant='outlined'
+                color='primary'
+                onClick={() => {
+                  book && book.status === false && handleAddTolibrary(book);
+                }}
+              />
+
               {book && book.status === true && book.isFinished === false && (
                 <Button
                   data-testid='finish-now'

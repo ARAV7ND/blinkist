@@ -37,17 +37,18 @@ describe("Browse Book", () => {
     expect(browseBook.textContent).toContain(
       "Turning Your Business into an Enduring Great Company"
     );
-    // expect(browseBook.textContent).toContain("Steve Jobs");
-    // expect(browseBook.textContent).toContain("12 minutes read");
+    // expect(browseBook.textContent).toContain("Beyond Entrepreneurship 2.0");
+    // expect(browseBook.textContent).toContain("15 minutes read");
   });
 
-  // test("checking events/actions", () => {
-  //   render(<BrowseBook />);
-  //   const browseBook = screen.getByTestId("browse-book");
-  //   expect(browseBook).toBeVisible();
-  //   const readNowButton = screen.getByRole("button");
-  //   fireEvent.click(readNowButton);
-  // });
+  test("checking events/actions", () => {
+    render(<BrowseBook />);
+    const browseBook = screen.getByTestId("browse-book");
+    expect(browseBook).toBeVisible();
+    const readNowButton = screen.getByTestId("read-now");
+    expect(readNowButton).toBeTruthy();
+    fireEvent.click(readNowButton);
+  });
 
   test("checking the tabs label", () => {
     render(<BrowseBook />);
