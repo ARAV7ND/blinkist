@@ -37,8 +37,6 @@ describe("Browse Book", () => {
     expect(browseBook.textContent).toContain(
       "Turning Your Business into an Enduring Great Company"
     );
-    // expect(browseBook.textContent).toContain("Beyond Entrepreneurship 2.0");
-    // expect(browseBook.textContent).toContain("15 minutes read");
   });
 
   test("checking events/actions", () => {
@@ -48,6 +46,10 @@ describe("Browse Book", () => {
     const readNowButton = screen.getByTestId("read-now");
     expect(readNowButton).toBeTruthy();
     fireEvent.click(readNowButton);
+    const finishButton = screen.getByTestId("finish-now");
+    expect(finishButton).toBeTruthy();
+    fireEvent.click(finishButton);
+    expect(window.location.pathname).toBe("/");
   });
 
   test("checking the tabs label", () => {

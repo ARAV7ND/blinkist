@@ -80,7 +80,7 @@ const Browse = () => {
       ? "Read Again"
       : "Read Now";
   const classes = useStyles();
-  // console.log(book);
+
   return (
     <>
       <Box sx={{ marginTop: "80px", marginLeft: 5 }} data-testid='browse-book'>
@@ -123,19 +123,17 @@ const Browse = () => {
                 }}
               />
 
-              {book && book.status === true && book.isFinished === false && (
-                <Button
-                  data-testid='finish-now'
-                  style={{
-                    marginLeft: 50,
-                  }}
-                  children={"Finish reading"}
-                  variant='contained'
-                  color='primary'
-                  className={classes.buttonStyles}
-                  onClick={() => book && handleFinish(book)}
-                />
-              )}
+              <Button
+                data-testid='finish-now'
+                style={{
+                  marginLeft: 50,
+                }}
+                children={"Finish reading"}
+                variant='contained'
+                color='primary'
+                className={classes.buttonStyles}
+                onClick={() => book && handleFinish(book)}
+              />
             </Box>
           </Grid>
           <Grid item md={4}>
